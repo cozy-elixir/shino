@@ -29,8 +29,8 @@ defmodule Demo.MixProject do
     [
       {:shino, path: ".."},
       {:bandit, "~> 1.1"},
-      {:phoenix, ">= 1.7.0"},
-      {:phoenix_live_view, "1.0.0-rc.0", override: true},
+      {:phoenix, "~> 1.7"},
+      {:phoenix_live_view, "1.0.0-rc.6", override: true},
       {:ecto, ">= 0.0.0"},
       {:ex_check, "~> 0.14.0", only: [:dev], runtime: false},
       {:credo, ">= 0.0.0", only: [:dev], runtime: false},
