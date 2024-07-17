@@ -1,4 +1,4 @@
-defmodule ComboUI.Collapsible do
+defmodule Shino.UI.Collapsible do
   @moduledoc """
   Provides collapsible related components.
 
@@ -28,7 +28,7 @@ defmodule ComboUI.Collapsible do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   defmodule Root do
     defstruct [:id]

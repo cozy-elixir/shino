@@ -1,4 +1,4 @@
-defmodule ComboUI.Progress do
+defmodule Shino.UI.Progress do
   @moduledoc """
   Provides progress related components.
 
@@ -12,7 +12,7 @@ defmodule ComboUI.Progress do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   Renders a progress bar.

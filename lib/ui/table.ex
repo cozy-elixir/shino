@@ -1,4 +1,4 @@
-defmodule ComboUI.Table do
+defmodule Shino.UI.Table do
   @moduledoc """
   Provides table related components.
 
@@ -115,7 +115,7 @@ defmodule ComboUI.Table do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   The root contains all the parts of a table.

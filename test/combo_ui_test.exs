@@ -1,8 +1,8 @@
-defmodule ComboUITest do
+defmodule Shino.UITest do
   use ExUnit.Case
-  doctest ComboUI
+  doctest Shino.UI
 
   test "greets the world" do
-    assert ComboUI.hello() == :world
+    assert Shino.UI.hello() == :world
   end
 end

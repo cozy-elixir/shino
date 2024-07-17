@@ -1,4 +1,4 @@
-defmodule ComboUI.Input do
+defmodule Shino.UI.Input do
   @moduledoc """
   Provides input related components.
 
@@ -44,8 +44,8 @@ defmodule ComboUI.Input do
 
   """
 
-  use ComboUI, :component
-  alias ComboUI.Label
+  use Shino.UI, :component
+  alias Shino.UI.Label
 
   @doc """
   Renders an input.

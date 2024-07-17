@@ -1,4 +1,4 @@
-defmodule ComboUI.Dialog do
+defmodule Shino.UI.Dialog do
   @moduledoc """
   Provides dialog related components.
 
@@ -6,7 +6,7 @@ defmodule ComboUI.Dialog do
 
   ## Related components
 
-    * `ComboUI.Sheet`
+    * `Shino.UI.Sheet`
 
   ## Availale components
 
@@ -106,7 +106,7 @@ defmodule ComboUI.Dialog do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   defmodule Root do
     defstruct [:id, :on_cancel]

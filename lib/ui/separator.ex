@@ -1,4 +1,4 @@
-defmodule ComboUI.Separator do
+defmodule Shino.UI.Separator do
   @moduledoc """
   Provides separator related components.
 
@@ -11,7 +11,7 @@ defmodule ComboUI.Separator do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   Renders a separator.

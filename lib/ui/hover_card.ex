@@ -1,4 +1,4 @@
-defmodule ComboUI.HoverCard do
+defmodule Shino.UI.HoverCard do
   @moduledoc """
   Provides hover card related components.
 
@@ -24,7 +24,7 @@ defmodule ComboUI.HoverCard do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   The root contains all the parts of a hover card.

@@ -1,4 +1,4 @@
-defmodule ComboUI.Button do
+defmodule Shino.UI.Button do
   @moduledoc """
   Provides button related components.
 
@@ -9,7 +9,7 @@ defmodule ComboUI.Button do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   Renders a button.

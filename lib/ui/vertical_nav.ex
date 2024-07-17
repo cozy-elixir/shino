@@ -1,4 +1,4 @@
-defmodule ComboUI.VerticalNav do
+defmodule Shino.UI.VerticalNav do
   @moduledoc """
   Provides vertical navigation related components.
 
@@ -54,7 +54,7 @@ defmodule ComboUI.VerticalNav do
   ```
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   The root contains all the parts of a collapsible.

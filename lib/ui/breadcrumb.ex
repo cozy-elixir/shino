@@ -1,4 +1,4 @@
-defmodule ComboUI.Breadcrumb do
+defmodule Shino.UI.Breadcrumb do
   @moduledoc """
   Provides breadcrumb related components.
 
@@ -53,7 +53,7 @@ defmodule ComboUI.Breadcrumb do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   The root contains all the parts of a breadcrumb.

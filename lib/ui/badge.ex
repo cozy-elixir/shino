@@ -1,4 +1,4 @@
-defmodule ComboUI.Badge do
+defmodule Shino.UI.Badge do
   @moduledoc """
   Provides badge related components.
 
@@ -8,7 +8,7 @@ defmodule ComboUI.Badge do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   Renders a badge.

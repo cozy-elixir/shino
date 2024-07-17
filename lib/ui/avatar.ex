@@ -1,4 +1,4 @@
-defmodule ComboUI.Avatar do
+defmodule Shino.UI.Avatar do
   @moduledoc """
   Provides avatar related components.
 
@@ -27,7 +27,7 @@ defmodule ComboUI.Avatar do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   The root contains all the parts of an avatar.

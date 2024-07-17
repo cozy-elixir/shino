@@ -1,4 +1,4 @@
-defmodule ComboUI.Skeleton do
+defmodule Shino.UI.Skeleton do
   @moduledoc """
   Provides skeleton related components.
 
@@ -10,7 +10,7 @@ defmodule ComboUI.Skeleton do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   Renders a skeleton.

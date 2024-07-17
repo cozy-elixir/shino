@@ -1,4 +1,4 @@
-defmodule ComboUI.Label do
+defmodule Shino.UI.Label do
   @moduledoc """
   Provides label related components.
 
@@ -9,7 +9,7 @@ defmodule ComboUI.Label do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   Renders a label.

@@ -1,4 +1,4 @@
-defmodule ComboUI.Form do
+defmodule Shino.UI.Form do
   @moduledoc """
   Provides form related components.
 
@@ -42,9 +42,9 @@ defmodule ComboUI.Form do
 
   """
 
-  use ComboUI, :component
-  alias ComboUI.Label
-  alias ComboUI.Button
+  use Shino.UI, :component
+  alias Shino.UI.Label
+  alias Shino.UI.Button
 
   @doc """
   The root contains all the parts of a form.

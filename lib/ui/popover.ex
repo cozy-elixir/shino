@@ -1,4 +1,4 @@
-defmodule ComboUI.Popover do
+defmodule Shino.UI.Popover do
   @moduledoc """
   Provides popover related components.
 
@@ -26,7 +26,7 @@ defmodule ComboUI.Popover do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   defmodule Root do
     defstruct [:id, :side, :align]

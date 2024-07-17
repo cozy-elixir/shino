@@ -1,4 +1,4 @@
-defmodule ComboUI.Page do
+defmodule Shino.UI.Page do
   @moduledoc """
   Provides page related components.
 
@@ -6,7 +6,7 @@ defmodule ComboUI.Page do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   Readers a page header.

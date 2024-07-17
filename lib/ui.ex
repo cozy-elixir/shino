@@ -1,4 +1,4 @@
-defmodule ComboUI do
+defmodule Shino.UI do
   @moduledoc """
   Collects components which are suitable for building interfaces for Web applications.
 
@@ -30,59 +30,59 @@ defmodule ComboUI do
     quote do
       # base components - import them for easier access to base components
 
-      import ComboUI.Button
-      import ComboUI.Label
-      import ComboUI.Input
-      import ComboUI.Separator
-      import ComboUI.Progress
-      import ComboUI.Badge
-      import ComboUI.Skeleton
-      import ComboUI.AspectRatio
-      import ComboUI.ScrollArea
-      import ComboUI.JS
+      import Shino.UI.Button
+      import Shino.UI.Label
+      import Shino.UI.Input
+      import Shino.UI.Separator
+      import Shino.UI.Progress
+      import Shino.UI.Badge
+      import Shino.UI.Skeleton
+      import Shino.UI.AspectRatio
+      import Shino.UI.ScrollArea
+      import Shino.UI.JS
 
       # base components - aliases
 
-      alias ComboUI.Button
-      alias ComboUI.Label
-      alias ComboUI.Input
-      alias ComboUI.Progress
-      alias ComboUI.Separator
-      alias ComboUI.Badge
-      alias ComboUI.Skeleton
-      alias ComboUI.AspectRatio
-      alias ComboUI.ScrollArea
+      alias Shino.UI.Button
+      alias Shino.UI.Label
+      alias Shino.UI.Input
+      alias Shino.UI.Progress
+      alias Shino.UI.Separator
+      alias Shino.UI.Badge
+      alias Shino.UI.Skeleton
+      alias Shino.UI.AspectRatio
+      alias Shino.UI.ScrollArea
 
       # high-level components - aliases
 
-      alias ComboUI.Card
-      alias ComboUI.Form
-      alias ComboUI.Table
-      alias ComboUI.Breadcrumb
-      alias ComboUI.Menu
-      alias ComboUI.Avatar
-      alias ComboUI.Pagination
+      alias Shino.UI.Card
+      alias Shino.UI.Form
+      alias Shino.UI.Table
+      alias Shino.UI.Breadcrumb
+      alias Shino.UI.Menu
+      alias Shino.UI.Avatar
+      alias Shino.UI.Pagination
 
-      alias ComboUI.HoverCard
-      alias ComboUI.Tooltip
+      alias Shino.UI.HoverCard
+      alias Shino.UI.Tooltip
 
-      alias ComboUI.Tabs
-      alias ComboUI.Popover
-      alias ComboUI.Collapsible
-      alias ComboUI.Dialog
-      alias ComboUI.Sheet
+      alias Shino.UI.Tabs
+      alias Shino.UI.Popover
+      alias Shino.UI.Collapsible
+      alias Shino.UI.Dialog
+      alias Shino.UI.Sheet
 
-      alias ComboUI.VerticalNav
-      alias ComboUI.Page
+      alias Shino.UI.VerticalNav
+      alias Shino.UI.Page
 
-      alias ComboUI.Shell
+      alias Shino.UI.Shell
     end
   end
 
   def component do
     quote do
       use Phoenix.Component
-      import ComboUI.Helpers
+      import Shino.UI.Helpers
       alias Phoenix.LiveView.JS
     end
   end

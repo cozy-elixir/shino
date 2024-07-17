@@ -1,4 +1,4 @@
-defmodule ComboUI.Pagination do
+defmodule Shino.UI.Pagination do
   @moduledoc """
   Provides pagination related components.
 
@@ -35,7 +35,7 @@ defmodule ComboUI.Pagination do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   The root contains all the parts of a popover.

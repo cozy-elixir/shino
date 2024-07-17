@@ -1,4 +1,4 @@
-defmodule ComboUI.ScrollArea do
+defmodule Shino.UI.ScrollArea do
   @moduledoc """
   Provides scroll area related components.
 
@@ -11,7 +11,7 @@ defmodule ComboUI.ScrollArea do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   Renders a scroll area.

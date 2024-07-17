@@ -1,4 +1,4 @@
-defmodule ComboUI.Sheet do
+defmodule Shino.UI.Sheet do
   @moduledoc """
   Provides sheet related components.
 
@@ -6,7 +6,7 @@ defmodule ComboUI.Sheet do
 
   ## Related components
 
-    * `ComboUI.Dialog`
+    * `Shino.UI.Dialog`
 
   ## Availale components
 
@@ -139,7 +139,7 @@ defmodule ComboUI.Sheet do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   defmodule Root do
     defstruct [:id, :side]

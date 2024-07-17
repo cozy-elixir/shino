@@ -1,4 +1,4 @@
-defmodule ComboUI.AspectRatio do
+defmodule Shino.UI.AspectRatio do
   @moduledoc """
   Provides aspect ratio related components.
 
@@ -11,7 +11,7 @@ defmodule ComboUI.AspectRatio do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   Renders a div with fixed ratio.

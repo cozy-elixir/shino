@@ -1,4 +1,4 @@
-defmodule ComboUI.JS do
+defmodule Shino.UI.JS do
   @moduledoc false
 
   alias Phoenix.LiveView.JS

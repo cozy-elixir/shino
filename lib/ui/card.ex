@@ -1,4 +1,4 @@
-defmodule ComboUI.Card do
+defmodule Shino.UI.Card do
   @moduledoc """
   Provides card related components.
 
@@ -36,7 +36,7 @@ defmodule ComboUI.Card do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   The root contains all the parts of a card.

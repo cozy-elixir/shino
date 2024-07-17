@@ -1,4 +1,4 @@
-defmodule ComboUI.Helpers do
+defmodule Shino.UI.Helpers do
   @moduledoc false
 
   use Phoenix.Component

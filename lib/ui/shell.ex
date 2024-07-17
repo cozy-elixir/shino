@@ -1,11 +1,11 @@
-defmodule ComboUI.Shell do
+defmodule Shino.UI.Shell do
   @moduledoc """
   Provides application shell related components.
   """
 
-  use ComboUI, :component
-  alias ComboUI.Button
-  alias ComboUI.Sheet
+  use Shino.UI, :component
+  alias Shino.UI.Button
+  alias Shino.UI.Sheet
 
   @doc """
   Renders application shell using two column layout.

@@ -1,28 +1,28 @@
-# ComboUI
+# Shino
 
 ## Installation
 
-1. add `:combo_ui` to the deps of `mix.exs`:
+1. add `:shino` to the deps of `mix.exs`:
 
 ```elixir
-{:combo_ui, <requirement>}
+{:shino, <requirement>}
 ```
 
-2. add combo_ui to the deps of `package.json`:
+2. add shino to the deps of `package.json`:
 
 ```elixir
-"combo_ui": "file:../../deps/combo_ui/assets",
+"shino": "file:../../deps/shino/assets",
 ```
 
 3. merge `tailwind.config.js` to your project's `tailwind.config.js`:
 
 ```javascript
 import mergeOptions from "merge-options"
-import configComboUI from "combo_ui/tailwind.config.js"
+import configShino.UI from "shino/tailwind.config.js"
 
-export default mergeOptions(configComboUI, {
+export default mergeOptions(configShino.UI, {
   content: [
-    "../../deps/combo_ui/**/*.*ex",
+    "../../deps/shino/**/*.*ex",
     // ...
   ],
 })
@@ -35,5 +35,5 @@ export default mergeOptions(configComboUI, {
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import "combo_ui/theme.css";
+@import "shino/theme.css";
 ```

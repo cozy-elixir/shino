@@ -1,4 +1,4 @@
-defmodule ComboUI.Menu do
+defmodule Shino.UI.Menu do
   @moduledoc """
   Provides menu related components.
 
@@ -46,7 +46,7 @@ defmodule ComboUI.Menu do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   The root contains all the parts of a menu.

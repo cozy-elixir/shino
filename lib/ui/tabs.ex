@@ -1,4 +1,4 @@
-defmodule ComboUI.Tabs do
+defmodule Shino.UI.Tabs do
   @moduledoc """
   Provides tabs related components.
 
@@ -57,7 +57,7 @@ defmodule ComboUI.Tabs do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   The root contains all the parts of a form.

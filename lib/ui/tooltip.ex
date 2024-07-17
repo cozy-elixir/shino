@@ -1,4 +1,4 @@
-defmodule ComboUI.Tooltip do
+defmodule Shino.UI.Tooltip do
   @moduledoc """
   Provides tooltip related components.
 
@@ -25,7 +25,7 @@ defmodule ComboUI.Tooltip do
 
   """
 
-  use ComboUI, :component
+  use Shino.UI, :component
 
   @doc """
   The root contains all the parts of a tooltip.
