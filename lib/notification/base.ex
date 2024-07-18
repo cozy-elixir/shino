@@ -5,12 +5,13 @@ defmodule Shino.Notification.Base do
 
   use Phoenix.Component
 
+  import Shino.UI.Helpers, only: [icon: 1]
   alias Phoenix.LiveView.JS
 
   @types [:flash, :"lv-flash", :"lv-toast"]
-  @kinds [:info, :success, :warning, :error]
+  @kinds [:info, :success, :warning, :critical]
 
-  @type kind :: :info | :success | :warning | :error
+  @type kind :: :info | :success | :warning | :critical
 
   @doc false
   def kinds, do: @kinds
@@ -57,7 +58,7 @@ defmodule Shino.Notification.Base do
         "col-start-1 col-end-1 row-start-1 row-end-2",
         @class_fn.(assigns)
       ]}
-      phx-hook="ShinoNotification"
+      phx-hook="Shino.Notification"
       {@rest}
     >
       <%= if @component do %>
@@ -89,7 +90,7 @@ defmodule Shino.Notification.Base do
       <button
         type="button"
         class={[
-          "group group-has-[[data-part='title']]/notification:absolute right-1.5 top-1.5",
+          "group group-has-[[data-part='title']]/notification:absolute group-has-[[data-part='title']]/notification:top-1.5 group-has-[[data-part='title']]/notification:right-1.5",
           "p-1",
           "rounded-md text-black/50 transition-all",
           "hover:text-black hover:bg-black/5 group-hover:opacity-100",
@@ -98,7 +99,7 @@ defmodule Shino.Notification.Base do
         aria-label="close"
         phx-click={JS.dispatch("notification-dismiss", to: "##{@id}")}
       >
-        <.svg name="hero-x-mark-solid" class="h-[14px] w-[14px] opacity-40 group-hover:opacity-70" />
+        <.icon name="tabler-x" class="h-3.5 w-3.5 opacity-40 group-hover:opacity-70" />
       </button>
     </div>
     """
@@ -118,29 +119,7 @@ defmodule Shino.Notification.Base do
       assigns[:kind] == :info && "bg-white text-black",
       assigns[:kind] == :success && "!text-green-700 !bg-green-100 border-green-200",
       assigns[:kind] == :warning && "!text-yellow-700 !bg-yellow-100 border-yellow-200",
-      assigns[:kind] == :error && "!text-red-700 !bg-red-100 border-red-200"
+      assigns[:kind] == :critical && "!text-red-700 !bg-red-100 border-red-200"
     ]
-  end
-
-  attr :name, :string, required: true, doc: "the name of the icon"
-  attr :rest, :global, doc: "other html attributes"
-
-  defp svg(%{name: "hero-x-mark-solid"} = assigns) do
-    ~H"""
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-      data-slot="icon"
-      {@rest}
-    >
-      <path
-        fill-rule="evenodd"
-        d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
-        clip-rule="evenodd"
-      />
-    </svg>
-    """
   end
 end

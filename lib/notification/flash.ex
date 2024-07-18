@@ -10,7 +10,7 @@ defmodule Shino.Notification.Flash do
   @doc """
   Flashes are derived from `Shino.Notification.Base`.
 
-  They won't disappear util you dismiss them.
+  They won't disappear util users dismiss them.
   """
   attr :group_id, :string, required: true
   attr :f, :map, required: true
@@ -31,9 +31,9 @@ defmodule Shino.Notification.Flash do
         type={@type}
         kind={kind}
         duration={0}
-        title={kind |> to_string() |> String.capitalize()}
         message={message}
         phx-update="ignore"
+        role="alert"
       />
     <% end %>
     """
