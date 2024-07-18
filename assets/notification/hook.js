@@ -18,7 +18,7 @@ function doAnimations(
 ) {
   const notificationGroup = document.querySelector(`#${notificationGroupId}`)
   const notifications = Array.from(
-    notificationGroup.querySelectorAll(`[phx-hook="ShinoNotification"]`),
+    notificationGroup.querySelectorAll(`[phx-hook="Shino.Notification"]`),
   )
     .filter((n) => !isHidden(n))
     .filter((n) => n !== notificationToRemove)
@@ -98,7 +98,7 @@ async function animateOut(notificationGroupId, notification) {
   await animation.finished
 }
 
-export default function createShinoNotificationHook(animateOptions) {
+export default function createNotificationHook(animateOptions) {
   return {
     mounted() {
       const type = this.type()
