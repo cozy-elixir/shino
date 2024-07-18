@@ -34,11 +34,12 @@ defmodule Shino.Notification.Base do
   attr :title, :string, default: nil
   attr :message, :string, default: nil
   attr :action, :any, default: nil
-  attr :component, :any, default: nil
 
-  attr :class_fn, :any,
-    default: &__MODULE__.notification_class_fn/1,
-    doc: "function to override the look of the notification"
+  attr :component, :any,
+    default: nil,
+    doc: """
+    An alternative component, which accepts all the attrs of current component.
+    """
 
   attr :rest, :global, doc: "the arbitrary attributes to add to the notification container"
   slot :inner_block
@@ -53,40 +54,62 @@ defmodule Shino.Notification.Base do
       data-type={@type}
       data-kind={@kind}
       data-duration={@duration || 4000}
-      class={[
-        "group/notification",
-        "col-start-1 col-end-1 row-start-1 row-end-2",
-        @class_fn.(assigns)
-      ]}
+      class={
+        [
+          "col-start-1 col-end-1 row-start-1 row-end-2",
+          # start hidden if JavaScript is enabled
+          "[@media(scripting:enabled)]:opacity-0 [@media(scripting:enabled){[data-phx-main]_&}]:opacity-100"
+        ]
+      }
       phx-hook="Shino.Notification"
       {@rest}
     >
       <%= if @component do %>
         <%= @component.(Map.merge(assigns, %{body: body})) %>
       <% else %>
-        <div class="grow flex flex-col items-start justify-center">
-          <p
-            :if={@title}
-            data-part="title"
-            class={[
-              if(@icon, do: "mb-2", else: ""),
-              "flex items-center text-sm font-semibold leading-6"
-            ]}
-          >
-            <%= if @icon do %>
-              <%= @icon.(assigns) %>
-            <% end %>
-            <%= @title %>
-          </p>
-          <p class="text-sm leading-5">
-            <%= body %>
-          </p>
-        </div>
-
-        <%= if @action do %>
-          <%= @action.(assigns) %>
-        <% end %>
+        <%= default_component(Map.merge(assigns, %{body: body})) %>
       <% end %>
+    </div>
+    """
+  end
+
+  defp default_component(assigns) do
+    ~H"""
+    <div class={[
+      "group/notification",
+      "relative",
+      "flex items-center justify-between",
+      "w-full",
+      "p-4 pointer-events-auto origin-center",
+      "border rounded-lg shadow-lg overflow-hidden",
+      assigns[:kind] == :info && "bg-white text-black",
+      assigns[:kind] == :success && "!text-green-700 !bg-green-100 border-green-200",
+      assigns[:kind] == :warning && "!text-yellow-700 !bg-yellow-100 border-yellow-200",
+      assigns[:kind] == :critical && "!text-red-700 !bg-red-100 border-red-200"
+    ]}>
+      <div class="grow flex flex-col items-start justify-center">
+        <p
+          :if={@title}
+          data-part="title"
+          class={[
+            if(@icon, do: "mb-2", else: ""),
+            "flex items-center text-sm font-semibold leading-6"
+          ]}
+        >
+          <%= if @icon do %>
+            <%= @icon.(assigns) %>
+          <% end %>
+          <%= @title %>
+        </p>
+        <p class="text-sm leading-5">
+          <%= @body %>
+        </p>
+      </div>
+
+      <%= if @action do %>
+        <%= @action.(assigns) %>
+      <% end %>
+
       <button
         type="button"
         class={[
@@ -103,23 +126,5 @@ defmodule Shino.Notification.Base do
       </button>
     </div>
     """
-  end
-
-  @doc false
-  def notification_class_fn(assigns) do
-    [
-      # base classes
-      "relative",
-      "flex items-center justify-between",
-      "w-full p-4 pointer-events-auto origin-center",
-      "border rounded-lg shadow-lg overflow-hidden",
-      # start hidden if javascript is enabled
-      "[@media(scripting:enabled)]:opacity-0 [@media(scripting:enabled){[data-phx-main]_&}]:opacity-100",
-      # override styles per severity
-      assigns[:kind] == :info && "bg-white text-black",
-      assigns[:kind] == :success && "!text-green-700 !bg-green-100 border-green-200",
-      assigns[:kind] == :warning && "!text-yellow-700 !bg-yellow-100 border-yellow-200",
-      assigns[:kind] == :critical && "!text-red-700 !bg-red-100 border-red-200"
-    ]
   end
 end

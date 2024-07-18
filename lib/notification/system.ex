@@ -5,13 +5,19 @@ defmodule Shino.Notification.System do
 
   use Phoenix.Component
 
+  import Shino.UI.Helpers, only: [icon: 1]
   alias Phoenix.LiveView.JS
 
   @doc """
   Renders a connection group for showing connection status.
   """
   attr :id, :string, default: "connection-group", doc: "the DOM id of connection group"
-  attr :position, :atom, default: :bottom, values: [:top, :bottom], doc: "the position for showing UI"
+
+  attr :position, :atom,
+    default: :bottom,
+    values: [:top, :bottom],
+    doc: "the position for showing UI"
+
   attr :client_error_message, :string, default: "Network error, attempting to reconnect..."
   attr :server_error_message, :string, default: "Service error, attempting to recover..."
 
@@ -38,7 +44,7 @@ defmodule Shino.Notification.System do
         phx-connected={hide("#lv-client-error", position: @position)}
         hidden
       >
-        <.svg name="loader-circle" class="w-4 h-4 mr-2 animate-spin" />
+        <.icon name="loader-circle" class="w-4 h-4 mr-2 animate-spin" />
         <p><%= @client_error_message %></p>
       </div>
 
@@ -53,30 +59,10 @@ defmodule Shino.Notification.System do
         phx-disconnected={show(".phx-server-error #lv-server-error", position: @position)}
         phx-connected={hide("#lv-server-error", position: @position)}
       >
-        <.svg name="loader-circle" class="w-4 h-4 mr-2 animate-spin" />
+        <.icon name="loader-circle" class="w-4 h-4 mr-2 animate-spin" />
         <p><%= @server_error_message %></p>
       </div>
     </div>
-    """
-  end
-
-  attr :name, :string, required: true, doc: "the name of the icon"
-  attr :rest, :global, doc: "other html attributes"
-
-  defp svg(%{name: "loader-circle"} = assigns) do
-    ~H"""
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      {@rest}
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3a9 9 0 1 0 9 9" />
-    </svg>
     """
   end
 
@@ -84,10 +70,12 @@ defmodule Shino.Notification.System do
     transition =
       case position do
         :top ->
-          {"transition-all transform ease-in duration-300", "opacity-0 -translate-y-full", "opacity-100 translate-y-0"}
+          {"transition-all transform ease-in duration-300", "opacity-0 -translate-y-full",
+           "opacity-100 translate-y-0"}
 
         :bottom ->
-          {"transition-all transform ease-in duration-300", "opacity-0 translate-y-full", "opacity-100 translate-y-0"}
+          {"transition-all transform ease-in duration-300", "opacity-0 translate-y-full",
+           "opacity-100 translate-y-0"}
       end
 
     JS.show(js,
@@ -102,10 +90,12 @@ defmodule Shino.Notification.System do
     transition =
       case position do
         :top ->
-          {"transition-all transform ease-out duration-300", "opacity-0 translate-y-0", "opacity-100 -translate-y-full"}
+          {"transition-all transform ease-out duration-300", "opacity-0 translate-y-0",
+           "opacity-100 -translate-y-full"}
 
         :bottom ->
-          {"transition-all transform ease-out duration-300", "opacity-100 translate-y-0", "opacity-0 translate-y-full"}
+          {"transition-all transform ease-out duration-300", "opacity-100 translate-y-0",
+           "opacity-0 translate-y-full"}
       end
 
     JS.hide(js,

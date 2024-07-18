@@ -53,6 +53,6 @@ defmodule Shino.Notification do
     """
   end
 
-  defdelegate send_toast(kind, message, options \\ []), to: LiveComponent
   defdelegate put_toast(socket, kind, message, options \\ []), to: LiveComponent
+  defdelegate send_toast(kind, message, options \\ []), to: LiveComponent
 end
