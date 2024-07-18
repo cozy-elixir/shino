@@ -10,13 +10,7 @@ import mergeOptions from "merge-options"
 export default mergeOptions.apply({ concatArrays: true }, [
   shinoUI,
   {
-    content: [
-      "./js/**/*.js",
-      "../lib/*_web.ex",
-      "../lib/*_web/**/*.*ex",
-      "../../lib/**/*.*ex",
-      "../../assets/**/*.js",
-    ],
+    content: ["./js/**/*.js", "../lib/*_web.ex", "../lib/*_web/**/*.*ex", "../../lib/**/*.*ex"],
     theme: {
       extend: {},
     },

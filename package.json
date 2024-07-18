@@ -1,0 +1,15 @@
+{
+  "name": "shino",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "exports": {
+    "./ui": "./priv/static/ui.js",
+    "./notification": "./priv/static/notification.js"
+  },
+  "files": [
+    "README.md",
+    "package.json",
+    "priv/static/*",
+    "assets/*"
+  ]
+}

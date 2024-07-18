@@ -13,29 +13,34 @@ A UI kit for Phoenix LiveView.
 2. add shino to the deps of `package.json`:
 
 ```elixir
-"shino": "file:../../deps/shino/assets",
+"shino": "file:../../deps/shino",
 ```
 
-3. merge `tailwind.config.js` to your project's `tailwind.config.js`:
+3. add Tailwind config of shino to your project's `tailwind.config.js`:
 
 ```javascript
 import mergeOptions from "merge-options"
-import configShino.UI from "shino/tailwind.config.js"
+import { tailwindConfig as shinoUI } from "shino/ui"
 
-export default mergeOptions(configShino.UI, {
-  content: [
-    "../../deps/shino/**/*.*ex",
-    // ...
-  ],
-})
+export default mergeOptions.apply({ concatArrays: true }, [
+  shinoUI,
+  {
+    content: [
+      "../../deps/shino/**/*.*ex",
+      // ...
+    ],
+  }
+]
 ```
 
-4. import the theme file:
+4. (optional) add notification hook to Phoenix LiveView:
 
-```css
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+```javascript
+import { createNotificationHook as createShinoNotificationHook } from "shino/notification"
 
-@import "shino/theme.css";
+const liveSocket = new LiveSocket("/live", Socket, {
+  hooks: {
+    "Shino.Notification": createShinoNotificationHook({ maxShownNotifications: 3 }),
+  },
+})
 ```

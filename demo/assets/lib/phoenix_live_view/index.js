@@ -8,7 +8,7 @@ const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
   params: { _csrf_token: csrfToken },
   hooks: {
-    "Shino.Notification": createShinoNotificationHook({ maxShownNotifications: 5 }),
+    "Shino.Notification": createShinoNotificationHook({ maxShownNotifications: 3 }),
   },
 })
 
