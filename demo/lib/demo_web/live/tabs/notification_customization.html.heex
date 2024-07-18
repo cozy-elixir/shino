@@ -1,0 +1,22 @@
+<p>
+  If you want to take over the rendering of notification, please try <code>:component</code>
+  option, which accepts a function component.
+</p>
+
+<div class="flex flex-wrap gap-3">
+  <.button
+    variant="outline"
+    size="sm"
+    phx-click={
+      JS.push("custom-toast",
+        value: %{
+          "title" => "Customized component",
+          "body" => "This is rendered using a custom toast.",
+          "component" => "customized_toast"
+        }
+      )
+    }
+  >
+    Custom Component
+  </.button>
+</div>

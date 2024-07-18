@@ -1,0 +1,178 @@
+<p>
+  <code>Shino.Notification</code> is a drop-in replacement for notification system in Phoenix.
+</p>
+
+<p>
+  It provides two types of notifications:
+</p>
+
+<ul>
+  <li>
+    Flashes
+    <ul>
+      <li>
+        available for DeadView and LiveView.
+      </li>
+      <li>
+        only support showing one flash of the same type at the same time.
+      </li>
+      <li>
+        inherit from <.link href="https://hexdocs.pm/phoenix/controllers.html#flash-messages">
+          the existing flash system of Phoenix
+        </.link>, but with style improvements to make it have the similar UI with toasts.
+      </li>
+    </ul>
+  </li>
+  <li>
+    Toasts
+    <ul>
+      <li>
+        available for LiveView only.
+      </li>
+      <li>
+        support showing multiple toasts of the same type at the same time.
+      </li>
+      <li>
+        support updating existing toast.
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Levels</h3>
+<p>
+  It provides 4 different levels for messages:
+</p>
+<ul>
+  <li><code>:info</code></li>
+  <li><code>:success</code></li>
+  <li><code>:warning</code></li>
+  <li><code>:critical</code></li>
+</ul>
+
+<h2 class="mb-6 text-2xl font-bold">Showcases</h2>
+
+<p class="mt-4">
+  Here's a sneak peak of what <code>Shino.Notification</code> provides.
+</p>
+
+<section>
+  <h3>Flashes</h3>
+
+  <p>A flash can be rendered in LiveView via <code>put_flash/3</code>:</p>
+
+  <div class="flex flex-wrap gap-3">
+    <.button variant="outline" size="sm" phx-click={JS.push("flash", value: %{kind: "info"})}>
+      Info Flash
+    </.button>
+
+    <.button variant="outline" size="sm" phx-click={JS.push("flash", value: %{kind: "success"})}>
+      Success Flash
+    </.button>
+
+    <.button variant="outline" size="sm" phx-click={JS.push("flash", value: %{kind: "warning"})}>
+      Warning Flash
+    </.button>
+
+    <.button variant="outline" size="sm" phx-click={JS.push("flash", value: %{kind: "critical"})}>
+      Critcal Flash
+    </.button>
+  </div>
+
+  <p>
+    A flash can also be rendered in DeadView. <.link
+      href="/notification/flash/dead_view"
+      rel="noopener noreferrer"
+      target="_blank"
+    >Check it out</.link>.
+  </p>
+</section>
+
+<section>
+  <h3>Toasts</h3>
+  <p>A toast can be rendered in LiveView via <code>Shino.Notification.put_toast/3</code>:</p>
+  <div class="flex flex-wrap gap-3">
+    <.button variant="outline" size="sm" phx-click={JS.push("toast", value: %{kind: "info"})}>
+      Info Toast
+    </.button>
+    <.button variant="outline" size="sm" phx-click={JS.push("toast", value: %{kind: "success"})}>
+      Success Toast
+    </.button>
+    <.button variant="outline" size="sm" phx-click={JS.push("toast", value: %{kind: "warning"})}>
+      Warning Toast
+    </.button>
+    <.button variant="outline" size="sm" phx-click={JS.push("toast", value: %{kind: "critical"})}>
+      Critcal Toast
+    </.button>
+  </div>
+
+  <h4>Set a title</h4>
+  <p>
+    You can pass an optional <code>:title</code> option to <code>put_toast/4</code>:
+  </p>
+  <div class="flex flex-wrap gap-3">
+    <.button
+      variant="outline"
+      size="sm"
+      phx-click={
+        JS.push("custom-toast",
+          value: %{kind: "info", title: "Hey!", message: "This is a toast with title."}
+        )
+      }
+    >
+      With Title
+    </.button>
+    <.button
+      variant="outline"
+      size="sm"
+      phx-click={
+        JS.push("custom-toast",
+          value: %{kind: "info", message: "This is a toast without title."}
+        )
+      }
+    >
+      Without Title
+    </.button>
+  </div>
+
+  <h4>Set a duration</h4>
+  <p>
+    You can pass an optional <code>:duration</code> option to <code>put_toast/4</code>:
+  </p>
+  <div class="flex flex-wrap gap-3">
+    <.button
+      variant="outline"
+      size="sm"
+      phx-click={
+        JS.push("custom-toast",
+          value: %{kind: "info", duration: 1500, message: "This is a toast with 1500ms duration."}
+        )
+      }
+    >
+      1500ms
+    </.button>
+    <.button
+      variant="outline"
+      size="sm"
+      phx-click={
+        JS.push("custom-toast",
+          value: %{kind: "info", duration: 5000, message: "This is a toast with 5000ms duration."}
+        )
+      }
+    >
+      5000ms
+    </.button>
+  </div>
+
+  <h4>Update an existing toast</h4>
+  <p>
+    An existing toast can be updated by calling <code>send_toast/3</code>
+    with the same <code>:uuid</code>
+    option:
+  </p>
+  <div class="flex flex-wrap gap-3">
+    <.button variant="outline" size="sm" phx-click={JS.push("update-toast")}>
+      Create or Update
+    </.button>
+  </div>
+</section>

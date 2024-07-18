@@ -49,8 +49,10 @@ defmodule DemoWeb do
 
   defp html_helpers do
     quote do
-      import DemoWeb.CoreComponents
+
       import Phoenix.HTML
+
+      use Shino.UI
 
       alias Phoenix.LiveView.JS
 

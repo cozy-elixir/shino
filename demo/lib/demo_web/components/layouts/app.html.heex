@@ -1,5 +1,5 @@
 <div class="grow p-3 md:p-6 mx-auto max-screen-4xl">
-  <Shino.Notification.connection_group position={:bottom} />
+  <Shino.Notification.connection_group position={:top} />
   <Shino.Notification.notification_group flash={@flash} connected={assigns[:socket] != nil} />
 
   <%= @inner_content %>

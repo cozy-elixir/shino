@@ -1,35 +1,9 @@
-<div class="text-center py-6 max-md:py-16 md:mb-20 mt-[calc(50px-.75em)]">
+<div class="text-center py-6 max-md:py-16 md:mb-20 mt-24">
   <h1 class="text-4xl font-extrabold mb-2">Shino</h1>
   <p class="text-lg text-gray-600">
-    A drop-in replacement for notification system in Phoenix.
+    A UI kit for Phoenix.
   </p>
-  <div class="mt-12 flex place-content-center gap-4">
-    <.button
-      phx-click={
-        JS.push("toast",
-          value: %{
-            "title" => "Welcome",
-            "duration" => 3000000000_000,
-            "body" => "Good job! You just tried out Shino.Notification for the first time.",
-            "component" => "congrats"
-          }
-        )
-      }
-      class="h-10 px-5 py-1 !bg-white !border-zinc-400/50 hover:!bg-zinc-100"
-    >
-      Notify Me
-    </.button>
-
-    <.link
-      href="https://hexdocs.pm/phoenix_notif/readme.html#installation"
-      class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border transition-colors shadow-sm phx-submit-loading:opacity-75 active:text-zinc-800 h-9 px-5 py-1 !bg-indigo-500 !border-indigo-500/50 !text-white  hover:!bg-indigo-400"
-    >
-      Installation
-    </.link>
-  </div>
 </div>
-
-<.navbar />
 
 <div class="px-2 max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-[12rem_auto] gap-8">
   <aside
@@ -54,65 +28,78 @@
     }
   >
     <nav class="isolate">
-      <h3 class="px-2 mb-3 font-bold">Information</h3>
-      <.link
-        patch={~p"/"}
-        class="block mb-1 font-medium text-zinc-800 px-2 py-0.5 hover:bg-zinc-100 rounded-md transition-colors"
-      >
-        Getting Started
-      </.link>
-      <.link
-        href="https://hexdocs.pm/phoenix_notif/readme.html#installation"
-        class="block mb-1 font-medium text-zinc-800 px-2 py-0.5 hover:bg-zinc-100 rounded-md transition-colors"
-      >
-        Installation
-      </.link>
-      <.link
-        patch={~p"/dead_view/demo"}
-        class="block mb-1 font-medium text-zinc-800 px-2 py-0.5 hover:bg-zinc-100 rounded-md transition-colors"
-      >
-        Dead View
-      </.link>
+      <ul class="space-y-8">
+        <div>
+          <li>
+            <.link
+              patch={~p"/"}
+              class="block -mx-2 mb-1 font-medium text-zinc-800 px-2 py-0.5 hover:bg-zinc-100 rounded-md transition-colors"
+            >
+              Getting Started
+            </.link>
+          </li>
+          <li>
+            <.link
+              href="https://hexdocs.pm/shino/readme.html#installation"
+              class="block -mx-2 mb-1 font-medium text-zinc-800 px-2 py-0.5 hover:bg-zinc-100 rounded-md transition-colors"
+            >
+              Installation
+            </.link>
+          </li>
+        </div>
 
-      <h3 class="px-2 mt-8 mb-3 font-bold">Usage</h3>
-      <.link
-        patch={~p"/recipes"}
-        class="block mb-1 font-medium text-zinc-800 px-2 py-0.5 hover:bg-zinc-100 rounded-md transition-colors"
-      >
-        Recipes
-      </.link>
-      <.link
-        patch={~p"/customization"}
-        class="block mb-1 font-medium text-zinc-800 px-2 py-0.5 hover:bg-zinc-100 rounded-md transition-colors"
-      >
-        Customization
-      </.link>
+        <li>
+          <span class="block mt-8 mb-3 font-bold">Components</span>
+          <ul>
+            <li>
+              <.link
+                patch={~p"/components/button"}
+                class="block -mx-2 mb-1 font-medium text-zinc-800 px-2 py-0.5 hover:bg-zinc-100 rounded-md transition-colors"
+              >
+                Button
+              </.link>
+            </li>
+            <li>...</li>
+          </ul>
+        </li>
 
-      <h3 class="px-2 mt-8 mb-3 font-bold">More Information</h3>
-      <.link
-        href="https://github.com/cozy-elixir/phoenix_notif"
-        class="block mb-1 font-medium text-zinc-800 px-2 py-0.5 hover:bg-zinc-100 rounded-md transition-colors"
-      >
-        GitHub
-      </.link>
-      <.link
-        href="https://hex.pm/packages/phoenix_notif"
-        class="block mb-1 font-medium text-zinc-800 px-2 py-0.5 hover:bg-zinc-100 rounded-md transition-colors"
-      >
-        Hex Package
-      </.link>
-      <.link
-        href="https://hexdocs.pm/phoenix_notif/readme.html"
-        class="block mb-1 font-medium text-zinc-800 px-2 py-0.5 hover:bg-zinc-100 rounded-md transition-colors"
-      >
-        Hex Docs
-      </.link>
+        <li>
+          <span class="block mt-8 mb-3 font-bold">Notification</span>
+          <ul>
+            <li>
+              <.link
+                patch={~p"/notification/introduction"}
+                class="block -mx-2 mb-1 font-medium text-zinc-800 px-2 py-0.5 hover:bg-zinc-100 rounded-md transition-colors"
+              >
+                Introduction
+              </.link>
+            </li>
+
+            <li>
+              <.link
+                patch={~p"/notification/customization"}
+                class="block -mx-2 mb-1 font-medium text-zinc-800 px-2 py-0.5 hover:bg-zinc-100 rounded-md transition-colors"
+              >
+                Customization
+              </.link>
+            </li>
+
+            <li>
+              <.link
+                patch={~p"/notification/recipes"}
+                class="block -mx-2 mb-1 font-medium text-zinc-800 px-2 py-0.5 hover:bg-zinc-100 rounded-md transition-colors"
+              >
+                Recipes
+              </.link>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </nav>
   </aside>
-  <main class="relative lg:pr-4">
-    <!-- backdrop be here -->
-    <div class="hidden w-dvw h-dvh bg-black/50 fixed top-0 left-0 z-10" id="backdrop"></div>
 
+  <main class="relative lg:pr-4 prose">
+    <h2 :if={@title}><%= @title %></h2>
     <.tab action={@live_action} />
   </main>
 </div>

@@ -1,5 +1,7 @@
 # Shino
 
+A UI kit for Phoenix LiveView.
+
 ## Installation
 
 1. add `:shino` to the deps of `mix.exs`:
