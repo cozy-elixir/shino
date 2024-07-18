@@ -19,7 +19,7 @@ This package is still in its early stages, so it may still undergo significant c
 2. add shino to the deps of `package.json`:
 
 ```json
-"shino": "file:../../deps/shino"
+"shino": "file:../deps/shino"
 ```
 
 3. add Tailwind config of shino to your project's `tailwind.config.js`:
