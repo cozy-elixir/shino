@@ -3,7 +3,8 @@
   "type": "module",
   "scripts": {
     "watch": "node build.js --watch",
-    "build": "node build.js --deploy"
+    "build": "node build.js --deploy",
+    "test": "true"
   },
   "dependencies": {
     "motion": "^10.17.0",

@@ -142,6 +142,7 @@ defmodule Shino.UI.Sheet do
   use Shino.UI, :component
 
   defmodule Root do
+    @moduledoc false
     defstruct [:id, :side]
   end
 
@@ -305,13 +306,13 @@ defmodule Shino.UI.Sheet do
   defp side_class(side), do: Map.fetch!(@side_classes, side)
 
   defp show_sheet(js \\ %JS{}, id, side) do
-    selectorContent = "##{id}-content"
-    selectorOverlay = "##{id}-overlay"
-    selectorSheet = "##{id}-sheet"
+    selector_content = "##{id}-content"
+    selector_overlay = "##{id}-overlay"
+    selector_sheet = "##{id}-sheet"
 
-    transitionOverlay = {"transition duration-300 ease-in-out", "opacity-0", "opacity-100"}
+    transition_overlay = {"transition duration-300 ease-in-out", "opacity-0", "opacity-100"}
 
-    transitionSheet =
+    transition_sheet =
       case side do
         "left" -> {"transition duration-300 ease-in-out", "-translate-x-full", "translate-x-0"}
         "right" -> {"transition duration-300 ease-in-out", "translate-x-full", "translate-x-0"}
@@ -320,21 +321,21 @@ defmodule Shino.UI.Sheet do
       end
 
     js
-    |> JS.remove_class("hidden", to: selectorContent)
-    |> JS.transition(transitionOverlay, to: selectorOverlay, time: 300)
-    |> JS.transition(transitionSheet, to: selectorSheet, time: 300)
+    |> JS.remove_class("hidden", to: selector_content)
+    |> JS.transition(transition_overlay, to: selector_overlay, time: 300)
+    |> JS.transition(transition_sheet, to: selector_sheet, time: 300)
     |> JS.add_class("overflow-hidden", to: "body")
-    |> JS.focus_first(to: selectorSheet)
+    |> JS.focus_first(to: selector_sheet)
   end
 
   defp hide_sheet(js \\ %JS{}, id, side) do
-    selectorContent = "##{id}-content"
-    selectorOverlay = "##{id}-overlay"
-    selectorSheet = "##{id}-sheet"
+    selector_content = "##{id}-content"
+    selector_overlay = "##{id}-overlay"
+    selector_sheet = "##{id}-sheet"
 
-    transitionOverlay = {"transition duration-300 ease-in-out", "opacity-100", "opacity-0"}
+    transition_overlay = {"transition duration-300 ease-in-out", "opacity-100", "opacity-0"}
 
-    transitionSheet =
+    transition_sheet =
       case side do
         "left" -> {"transition duration-300 ease-in-out", "translate-x-0", "-translate-x-full"}
         "right" -> {"transition duration-300 ease-in-out", "translate-x-0", "translate-x-full"}
@@ -344,12 +345,12 @@ defmodule Shino.UI.Sheet do
 
     js
     |> JS.add_class("hidden",
-      to: selectorContent,
+      to: selector_content,
       transition: {"duration-300", "", ""},
       time: 300
     )
-    |> JS.transition(transitionOverlay, to: selectorOverlay, time: 300)
-    |> JS.transition(transitionSheet, to: selectorSheet, time: 300)
+    |> JS.transition(transition_overlay, to: selector_overlay, time: 300)
+    |> JS.transition(transition_sheet, to: selector_sheet, time: 300)
     |> JS.remove_class("overflow-hidden", to: "body")
     |> JS.pop_focus()
   end

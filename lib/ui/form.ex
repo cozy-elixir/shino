@@ -173,6 +173,7 @@ defmodule Shino.UI.Form do
     |> render_error()
   end
 
+  # credo:disable-for-next-line
   # TODO: how to check whether inner_block renders nothing?
   defp render_error(%{inner_block: inner_block} = assigns) when inner_block != [] do
     ~H"""

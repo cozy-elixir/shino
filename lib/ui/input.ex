@@ -69,6 +69,7 @@ defmodule Shino.UI.Input do
   attr :class, :string, default: nil
 
   attr :rest, :global,
+    # credo:disable-for-next-line
     # TODO: cleanup this list
     include: ~w(accept autocomplete capture cols disabled form list max maxlength min minlength
                 multiple pattern placeholder readonly required rows size step)

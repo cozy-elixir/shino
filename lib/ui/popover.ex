@@ -29,6 +29,7 @@ defmodule Shino.UI.Popover do
   use Shino.UI, :component
 
   defmodule Root do
+    @moduledoc false
     defstruct [:id, :side, :align]
   end
 
@@ -108,15 +109,15 @@ defmodule Shino.UI.Popover do
   end
 
   defp toggle_popover(js \\ %JS{}, id) do
-    selectorTrigger = "##{id} .popover-trigger"
-    selectorContent = "##{id} .popover-content"
+    selector_trigger = "##{id} .popover-trigger"
+    selector_content = "##{id} .popover-content"
 
     js
-    |> JS.toggle_attribute({"aria-expanded", "true", "false"}, to: selectorTrigger)
+    |> JS.toggle_attribute({"aria-expanded", "true", "false"}, to: selector_trigger)
     |> JS.toggle(
       in: {"transition duration-150 ease-in-out", "opacity-0 scale-95", "opacity-100 scale-100"},
       out: {"transition duration-150 ease-in-out", "opacity-100 scale-100", "opacity-0 scale-95"},
-      to: selectorContent,
+      to: selector_content,
       time: 150
     )
   end
@@ -126,15 +127,15 @@ defmodule Shino.UI.Popover do
   def hide_popover(js, %Root{id: id}), do: hide_popover(js, id)
 
   def hide_popover(js, id) do
-    selectorTrigger = "##{id} .popover-trigger"
-    selectorContent = "##{id} .popover-content"
+    selector_trigger = "##{id} .popover-trigger"
+    selector_content = "##{id} .popover-content"
 
     js
-    |> JS.set_attribute({"aria-expanded", "false"}, to: selectorTrigger)
+    |> JS.set_attribute({"aria-expanded", "false"}, to: selector_trigger)
     |> JS.hide(
       transition:
         {"transition duration-150 ease-in-out", "opacity-100 scale-100", "opacity-0 scale-95"},
-      to: selectorContent,
+      to: selector_content,
       time: 150
     )
   end

@@ -31,6 +31,7 @@ defmodule Shino.UI.Collapsible do
   use Shino.UI, :component
 
   defmodule Root do
+    @moduledoc false
     defstruct [:id]
   end
 

@@ -109,6 +109,7 @@ defmodule Shino.UI.Dialog do
   use Shino.UI, :component
 
   defmodule Root do
+    @moduledoc false
     defstruct [:id, :on_cancel]
   end
 
@@ -293,45 +294,45 @@ defmodule Shino.UI.Dialog do
   end
 
   defp show_dialog(js \\ %JS{}, id) do
-    selectorContent = "##{id}-content"
-    selectorOverlay = "##{id}-overlay"
-    selectorDialog = "##{id}-dialog"
+    selector_content = "##{id}-content"
+    selector_overlay = "##{id}-overlay"
+    selector_dialog = "##{id}-dialog"
 
-    transitionOverlay =
+    transition_overlay =
       {"transition-all transform ease-in-out duration-300", "opacity-0", "opacity-100"}
 
-    transitionDialog =
+    transition_dialog =
       {"transition-all transform ease-in-out duration-300", "translate-y-4 opacity-0",
        "translate-y-0 opacity-100"}
 
     js
-    |> JS.remove_class("hidden", to: selectorContent)
-    |> JS.transition(transitionOverlay, to: selectorOverlay, time: 300)
-    |> JS.transition(transitionDialog, to: selectorDialog, time: 300)
+    |> JS.remove_class("hidden", to: selector_content)
+    |> JS.transition(transition_overlay, to: selector_overlay, time: 300)
+    |> JS.transition(transition_dialog, to: selector_dialog, time: 300)
     |> JS.add_class("overflow-hidden", to: "body")
-    |> JS.focus_first(to: selectorDialog)
+    |> JS.focus_first(to: selector_dialog)
   end
 
   defp hide_dialog(js \\ %JS{}, id) do
-    selectorContent = "##{id}-content"
-    selectorOverlay = "##{id}-overlay"
-    selectorDialog = "##{id}-dialog"
+    selector_content = "##{id}-content"
+    selector_overlay = "##{id}-overlay"
+    selector_dialog = "##{id}-dialog"
 
-    transitionOverlay =
+    transition_overlay =
       {"transition-all transform ease-in-out duration-200", "opacity-100", "opacity-0"}
 
-    transitionDialog =
+    transition_dialog =
       {"transition-all transform ease-in-out duration-200", "translate-y-0 opacity-100",
        "translate-y-4 opacity-0"}
 
     js
     |> JS.add_class("hidden",
-      to: selectorContent,
+      to: selector_content,
       transition: {"duration-200", "", ""},
       time: 200
     )
-    |> JS.transition(transitionOverlay, to: selectorOverlay, time: 200)
-    |> JS.transition(transitionDialog, to: selectorDialog, time: 200)
+    |> JS.transition(transition_overlay, to: selector_overlay, time: 200)
+    |> JS.transition(transition_dialog, to: selector_dialog, time: 200)
     |> JS.remove_class("overflow-hidden", to: "body")
     |> JS.pop_focus()
   end
