@@ -1,6 +1,22 @@
 defmodule Shino.Notification do
   @moduledoc """
   A drop-in replacement for notification system in Phoenix.
+
+  ## Usage
+
+  Add following components to your `app.html.heex`:
+
+  ```heex
+  <Shino.Notification.connection_group position={:top} />
+  <Shino.Notification.notification_group flash={@flash} connected={assigns[:socket] != nil} />
+  ```
+
+  Then, use following functions to send flash or toast:
+
+    * `put_flash/3`
+    * `Shino.Notification.put_toast/_`
+    * `Shino.Notification.send_toast/_`
+
   """
 
   use Phoenix.Component

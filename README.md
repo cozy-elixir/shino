@@ -1,6 +1,6 @@
 # Shino
 
-A UI kit for Phoenix LiveView.
+A UI kit for Phoenix.
 
 ## Installation
 
@@ -29,18 +29,21 @@ export default mergeOptions.apply({ concatArrays: true }, [
       "../../deps/shino/**/*.*ex",
       // ...
     ],
+    // ...
   }
 ]
 ```
 
-4. (optional) add notification hook of shino to Phoenix LiveView:
+4. add notification hook of shino, if you want to use `Shino.Notification`:
 
 ```javascript
 import { createNotificationHook as createShinoNotificationHook } from "shino/notification"
 
 const liveSocket = new LiveSocket("/live", Socket, {
+  // ...
   hooks: {
     "Shino.Notification": createShinoNotificationHook({ maxShownNotifications: 3 }),
+    // ...
   },
 })
 ```

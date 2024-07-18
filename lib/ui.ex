@@ -1,6 +1,22 @@
 defmodule Shino.UI do
   @moduledoc """
-  Collects components which are suitable for building interfaces for Web applications.
+  UI components for Phoenix.
+
+  ## Usage
+
+  To make all components provided by `Shino.UI` available in Phoenix templates:
+
+      defmodule DemoWeb do
+        # ...
+        def html_helpers do
+          quote do
+            # ...
+            use Shino.UI
+            # ...
+          end
+        end
+        # ...
+      end
 
   ## References
 
