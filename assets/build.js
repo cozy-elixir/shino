@@ -8,18 +8,30 @@ const target = "es2015"
 const outDir = "../priv/static"
 
 async function main() {
-  const ctx = await esbuild.context({
+  const esm = await esbuild.context({
     entryPoints: ["./ui", "./notification"],
     outdir: outDir,
+    outExtension: { ".js": ".mjs" },
     bundle: true,
     target: target,
     format: "esm",
     minify: deploy,
-    sourcemap: deploy ? undefined : "linked",
+    sourcemap: deploy ? "external" : "inline",
+  })
+
+  const cjs = await esbuild.context({
+    entryPoints: ["./ui", "./notification"],
+    outdir: outDir,
+    outExtension: { ".js": ".cjs" },
+    bundle: true,
+    target: target,
+    format: "esm",
+    minify: deploy,
+    sourcemap: deploy ? "external" : "inline",
   })
 
   if (watch) {
-    await ctx.watch()
+    await [esm.watch(), cjs.watch()]
 
     // watch STDIN and terminate esbuild when Phoenix quits
     process.stdin.on("close", () => {
@@ -28,7 +40,7 @@ async function main() {
 
     process.stdin.resume()
   } else {
-    await ctx.rebuild()
+    await [esm.rebuild(), cjs.watch()]
     process.exit(0)
   }
 }

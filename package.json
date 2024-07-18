@@ -3,8 +3,14 @@
   "version": "0.1.0-alpha.0",
   "license": "Apache-2.0",
   "exports": {
-    "./ui": "./priv/static/ui.js",
-    "./notification": "./priv/static/notification.js"
+    "./ui": {
+      "import": "./priv/static/ui.mjs",
+      "require": "./priv/static/ui.cjs"
+    },
+    "./notification": {
+      "import": "./priv/static/notification.mjs",
+      "require": "./priv/static/notification.cjs"
+    }
   },
   "files": [
     "README.md",
