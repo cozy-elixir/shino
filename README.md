@@ -32,7 +32,7 @@ export default mergeOptions.apply({ concatArrays: true }, [
   shinoUI,
   {
     content: [
-      "../../deps/shino/**/*.*ex",
+      "../deps/shino/**/*.*ex",
       // ...
     ],
     // ...
