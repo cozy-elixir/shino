@@ -12,8 +12,8 @@ A UI kit for Phoenix LiveView.
 
 2. add shino to the deps of `package.json`:
 
-```elixir
-"shino": "file:../../deps/shino",
+```json
+"shino": "file:../../deps/shino"
 ```
 
 3. add Tailwind config of shino to your project's `tailwind.config.js`:
@@ -33,7 +33,7 @@ export default mergeOptions.apply({ concatArrays: true }, [
 ]
 ```
 
-4. (optional) add notification hook to Phoenix LiveView:
+4. (optional) add notification hook of shino to Phoenix LiveView:
 
 ```javascript
 import { createNotificationHook as createShinoNotificationHook } from "shino/notification"
@@ -44,3 +44,11 @@ const liveSocket = new LiveSocket("/live", Socket, {
   },
 })
 ```
+
+## Usage
+
+For more information, see the [documentation](https://hexdocs.pm/shino).
+
+## License
+
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
