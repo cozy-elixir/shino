@@ -49,13 +49,10 @@ defmodule Demo.MixProject do
   defp aliases do
     [
       setup: ["deps.get", "cmd --cd assets npm install"],
-      "assets.build": ["tailwind demo", "esbuild demo"],
-      "assets.watch": ["esbuild module --watch"],
-      "assets.deploy": [
-        "tailwind demo --minify",
-        "esbuild demo --minify",
-        "phx.digest"
-      ]
+      "assets.build": "cmd --cd assets npm run build",
+      "assets.watch": "cmd --cd assets npm run watch",
+      "assets.deploy": ["assets.build", "phx.digest"],
+      "assets.clean": ["phx.digest.clean --all"]
     ]
   end
 end

@@ -1,7 +1,7 @@
 defmodule Shino.MixProject do
   use Mix.Project
 
-  @version "0.1.0"
+  @version "0.1.0-alpha.0"
   @description "A UI kit for Phoenix."
   @source_url "https://github.com/cozy-elixir/shino"
 
@@ -67,8 +67,8 @@ defmodule Shino.MixProject do
   defp aliases do
     [
       setup: ["deps.get", "cmd --cd assets npm install"],
-      "assets.build": "cmd npm run build --prefix assets",
-      "assets.watch": "cmd npm run watch --prefix assets",
+      "assets.build": "cmd --cd assets npm run build",
+      "assets.watch": "cmd --cd assets npm run watch",
       publish: ["assets.build", "hex.publish", "tag"],
       tag: &tag_release/1
     ]
