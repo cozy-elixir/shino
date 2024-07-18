@@ -18,25 +18,25 @@ defmodule Shino.UI.Button do
 
   All available variants:
   ```heex
-  <.button variant="default">Default<.button>
-  <.button variant="secondary">Secondary<.button>
-  <.button variant="destructive">Destructive<.button>
-  <.button variant="outline">Outline<.button>
-  <.button variant="ghost">Ghost<.button>
-  <.button variant="link">Link<.button>
+  <.button variant="default">Default</.button>
+  <.button variant="secondary">Secondary</.button>
+  <.button variant="destructive">Destructive</.button>
+  <.button variant="outline">Outline</.button>
+  <.button variant="ghost">Ghost</.button>
+  <.button variant="link">Link</.button>
   ```
 
   All available sizes:
   ```heex
-  <.button size="default">Default<.button>
-  <.button size="sm">Small<.button>
-  <.button size="lg">Large<.button>
-  <.button size="icon">Icon<.button>
+  <.button size="default">Default</.button>
+  <.button size="sm">Small</.button>
+  <.button size="lg">Large</.button>
+  <.button size="icon">Icon</.button>
   ```
 
   Render a default button:
   ```heex
-  <.button>Button<.button>
+  <.button>Button</.button>
   ```
 
   Render a button with icon only:
