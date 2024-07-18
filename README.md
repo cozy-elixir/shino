@@ -2,6 +2,12 @@
 
 A UI kit for Phoenix.
 
+## Notes
+
+DON'T USE IT.
+
+This package is still in its early stages, so it may still undergo significant changes, potentially leading to breaking changes.
+
 ## Installation
 
 1. add `:shino` to the deps of `mix.exs`:
