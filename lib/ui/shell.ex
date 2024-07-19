@@ -4,7 +4,7 @@ defmodule Shino.UI.Shell do
   """
 
   use Shino.UI, :component
-  alias Shino.UI.Button
+  alias Shino.UI.ButtonLike
   alias Shino.UI.Sheet
 
   @doc """
@@ -51,9 +51,9 @@ defmodule Shino.UI.Shell do
         ]}>
           <Sheet.root :let={root} id={"#{@id}-nav-sm"} side="left">
             <Sheet.trigger for={root} class="shrink-0 md:hidden">
-              <Button.button variant="outline" size="icon">
+              <ButtonLike.button variant="outline" size="icon">
                 <.icon name="tabler-menu-2" class="h-5 w-5" />
-              </Button.button>
+              </ButtonLike.button>
             </Sheet.trigger>
             <Sheet.content for={root} class="w-full max-w-xs mr-16 border-r">
               <Sheet.close

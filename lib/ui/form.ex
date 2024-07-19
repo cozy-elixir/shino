@@ -44,7 +44,7 @@ defmodule Shino.UI.Form do
 
   use Shino.UI, :component
   alias Shino.UI.Label
-  alias Shino.UI.Button
+  alias Shino.UI.ButtonLike
 
   @doc """
   The root contains all the parts of a form.
@@ -207,9 +207,9 @@ defmodule Shino.UI.Form do
 
   def submit(assigns) do
     ~H"""
-    <Button.button type={@type} {@rest}>
+    <ButtonLike.button type={@type} {@rest}>
       <%= render_slot(@inner_block) %>
-    </Button.button>
+    </ButtonLike.button>
     """
   end
 end

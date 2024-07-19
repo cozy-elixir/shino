@@ -46,7 +46,7 @@ defmodule Shino.UI do
     quote do
       # base components - import them for easier access to base components
 
-      import Shino.UI.Button
+      import Shino.UI.ButtonLike
       import Shino.UI.Label
       import Shino.UI.Input
       import Shino.UI.Separator
@@ -59,7 +59,7 @@ defmodule Shino.UI do
 
       # base components - aliases
 
-      alias Shino.UI.Button
+      alias Shino.UI.ButtonLike
       alias Shino.UI.Label
       alias Shino.UI.Input
       alias Shino.UI.Progress
