@@ -1,7 +1,7 @@
 defmodule Shino.MixProject do
   use Mix.Project
 
-  @version "0.1.1-alpha.0"
+  @version "0.2.0-alpha.0"
   @description "A UI kit for Phoenix."
   @source_url "https://github.com/cozy-elixir/shino"
 
