@@ -22,14 +22,15 @@ This package is still in its early stages, so it may still undergo significant c
 "shino": "file:../deps/shino"
 ```
 
-3. add Tailwind config of shino to your project's `tailwind.config.js`:
+3. setup Tailwind config for `Shino.UI`:
 
 ```javascript
+// edit tailwind.config.js
 import mergeOptions from "merge-options"
-import { tailwindConfig as shinoUI } from "shino/ui"
+import { tailwindConfig as configShinoUI } from "shino/ui"
 
 export default mergeOptions.apply({ concatArrays: true }, [
-  shinoUI,
+  configShinoUI,
   {
     content: [
       "../deps/shino/**/*.*ex",
@@ -40,7 +41,7 @@ export default mergeOptions.apply({ concatArrays: true }, [
 ]
 ```
 
-4. add notification hook of shino, if you want to use `Shino.Notification`:
+4. setup hook for `Shino.Notification`:
 
 ```javascript
 import { createNotificationHook as createShinoNotificationHook } from "shino/notification"
