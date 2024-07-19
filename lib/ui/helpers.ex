@@ -6,7 +6,10 @@ defmodule Shino.UI.Helpers do
   def mc(nil), do: nil
 
   def mc(classes) when is_list(classes) do
-    Enum.join(classes, " ")
+    classes
+    |> List.flatten()
+    |> Enum.reject(& &1 == nil)
+    |> Enum.join(" ")
   end
 
   def ms(nil), do: nil
