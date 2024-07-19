@@ -59,7 +59,7 @@ defmodule Shino.UI.VerticalNav do
   @doc """
   The root contains all the parts of a collapsible.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -74,7 +74,7 @@ defmodule Shino.UI.VerticalNav do
   @doc """
   Renders a sidebar group.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -89,7 +89,7 @@ defmodule Shino.UI.VerticalNav do
   @doc """
   Renders a sidebar sub_group.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -104,7 +104,7 @@ defmodule Shino.UI.VerticalNav do
   @doc """
   Renders a sidebar item.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :active, :boolean, default: false
   attr :rest, :global
   slot :inner_block, required: true
@@ -138,7 +138,7 @@ defmodule Shino.UI.VerticalNav do
 
   It should be used with `<VerticalNav.item />`.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -164,7 +164,7 @@ defmodule Shino.UI.VerticalNav do
 
   It should be used with `<VerticalNav.item />`.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global, include: ~w(href navigate patch method)
   slot :inner_block, required: true
 

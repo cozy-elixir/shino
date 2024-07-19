@@ -120,7 +120,7 @@ defmodule Shino.UI.Table do
   @doc """
   The root contains all the parts of a table.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -137,7 +137,7 @@ defmodule Shino.UI.Table do
   @doc """
   Renders a table caption.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -152,7 +152,7 @@ defmodule Shino.UI.Table do
   @doc """
   Renders a table header.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -167,7 +167,7 @@ defmodule Shino.UI.Table do
   @doc """
   Renders a table body.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -182,7 +182,7 @@ defmodule Shino.UI.Table do
   @doc """
   Renders a table footer.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -197,7 +197,7 @@ defmodule Shino.UI.Table do
   @doc """
   Renders a table row.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -217,7 +217,7 @@ defmodule Shino.UI.Table do
   @doc """
   Renders a table head.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -240,7 +240,7 @@ defmodule Shino.UI.Table do
   @doc """
   Renders a table cell.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global, include: ~w(colspan)
   slot :inner_block, required: true
 

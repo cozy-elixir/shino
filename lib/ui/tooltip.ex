@@ -30,7 +30,7 @@ defmodule Shino.UI.Tooltip do
   @doc """
   The root contains all the parts of a tooltip.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -56,7 +56,7 @@ defmodule Shino.UI.Tooltip do
   @doc """
   Render a tooltip content.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :side, :string, values: ["top", "bottom", "left", "right"], default: "bottom"
   attr :align, :string, values: ["start", "center", "end"], default: "center"
   attr :rest, :global

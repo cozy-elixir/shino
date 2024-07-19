@@ -69,7 +69,7 @@ defmodule Shino.UI.Form do
   Renders a wrapper for wrapping parts of a field.
   """
   attr :field, Phoenix.HTML.FormField, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -85,7 +85,7 @@ defmodule Shino.UI.Form do
   Renders a label for a field.
   """
   attr :for, Phoenix.HTML.FormField, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -126,7 +126,7 @@ defmodule Shino.UI.Form do
   @doc """
   Renders a description for a field.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -157,7 +157,7 @@ defmodule Shino.UI.Form do
 
   """
   attr :field, Phoenix.HTML.FormField, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :translate_error, :any, default: &__MODULE__.translate_error/1
   attr :rest, :global
   slot :inner_block

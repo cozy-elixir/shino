@@ -29,7 +29,7 @@ defmodule Shino.UI.HoverCard do
   @doc """
   The root contains all the parts of a hover card.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -44,7 +44,7 @@ defmodule Shino.UI.HoverCard do
   @doc """
   Renders a hover card trigger.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -59,7 +59,7 @@ defmodule Shino.UI.HoverCard do
   @doc """
   Render a hover card content.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :side, :string, values: ["top", "bottom", "left", "right"], default: "bottom"
   attr :align, :string, values: ["start", "center", "end"], default: "center"
   attr :rest, :global

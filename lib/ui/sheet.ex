@@ -152,7 +152,7 @@ defmodule Shino.UI.Sheet do
   attr :id, :string, required: true
   attr :default_open, :boolean, default: false
   attr :side, :string, values: ["left", "right", "top", "bottom"], default: "left"
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -176,7 +176,7 @@ defmodule Shino.UI.Sheet do
   Renders a sheet trigger.
   """
   attr :for, Root, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -196,7 +196,7 @@ defmodule Shino.UI.Sheet do
   Renders a sheet content.
   """
   attr :for, Root, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   slot :inner_block, required: true
 
   def content(assigns) do
@@ -224,7 +224,7 @@ defmodule Shino.UI.Sheet do
   Renders a sheet close.
   """
   attr :for, Root, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -239,7 +239,7 @@ defmodule Shino.UI.Sheet do
   @doc """
   Renders a sheet header.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -254,7 +254,7 @@ defmodule Shino.UI.Sheet do
   @doc """
   Renders a sheet title.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -269,7 +269,7 @@ defmodule Shino.UI.Sheet do
   @doc """
   Renders a sheet description.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -284,7 +284,7 @@ defmodule Shino.UI.Sheet do
   @doc """
   Renders a sheet footer.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 

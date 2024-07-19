@@ -119,7 +119,7 @@ defmodule Shino.UI.Dialog do
   attr :id, :string, required: true
   attr :default_open, :boolean, default: false
   attr :on_cancel, JS, default: %JS{}
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -144,7 +144,7 @@ defmodule Shino.UI.Dialog do
   Renders a sheet trigger.
   """
   attr :for, Root, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -164,7 +164,7 @@ defmodule Shino.UI.Dialog do
   Renders a dialog content.
   """
   attr :for, Root, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   slot :inner_block, required: true
 
   def content(assigns) do
@@ -196,7 +196,7 @@ defmodule Shino.UI.Dialog do
   Renders a dialog close.
   """
   attr :for, Root, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -236,7 +236,7 @@ defmodule Shino.UI.Dialog do
   @doc """
   Renders a dialog header.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -251,7 +251,7 @@ defmodule Shino.UI.Dialog do
   @doc """
   Renders a dialog title.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -266,7 +266,7 @@ defmodule Shino.UI.Dialog do
   @doc """
   Renders a dialog description.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -281,7 +281,7 @@ defmodule Shino.UI.Dialog do
   @doc """
   Renders a dialog footer.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 

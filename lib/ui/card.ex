@@ -41,7 +41,7 @@ defmodule Shino.UI.Card do
   @doc """
   The root contains all the parts of a card.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -56,7 +56,7 @@ defmodule Shino.UI.Card do
   @doc """
   Renders a card header.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -71,7 +71,7 @@ defmodule Shino.UI.Card do
   @doc """
   Renders a card title.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -86,7 +86,7 @@ defmodule Shino.UI.Card do
   @doc """
   Renders a card description.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -101,7 +101,7 @@ defmodule Shino.UI.Card do
   @doc """
   Renders a card content.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -116,7 +116,7 @@ defmodule Shino.UI.Card do
   @doc """
   Renders a card footer.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 

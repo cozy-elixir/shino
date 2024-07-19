@@ -32,7 +32,7 @@ defmodule Shino.UI.Progress do
 
   """
   attr :value, :integer, default: 0
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
 
   def progress(assigns) do

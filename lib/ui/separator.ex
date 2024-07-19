@@ -24,7 +24,7 @@ defmodule Shino.UI.Separator do
   ```
   """
   attr :orientation, :string, values: ~w(horizontal vertical), default: "horizontal"
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
 
   def separator(assigns) do

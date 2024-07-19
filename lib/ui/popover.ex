@@ -39,7 +39,7 @@ defmodule Shino.UI.Popover do
   attr :id, :string, required: true
   attr :side, :string, values: ["top", "bottom", "left", "right"], default: "bottom"
   attr :align, :string, values: ["start", "center", "end"], default: "start"
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -62,7 +62,7 @@ defmodule Shino.UI.Popover do
   Renders a popover trigger.
   """
   attr :for, Root, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -83,7 +83,7 @@ defmodule Shino.UI.Popover do
   Renders the content of a popover.
   """
   attr :for, Root, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 

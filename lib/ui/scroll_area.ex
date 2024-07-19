@@ -32,7 +32,7 @@ defmodule Shino.UI.ScrollArea do
   </.scroll_area>
   ```
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block
 

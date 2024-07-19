@@ -54,7 +54,7 @@ defmodule Shino.UI.Button do
   ```
   """
   attr :type, :string, default: nil
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
 
   attr :variant, :string,
     values: ~w(default secondary destructive outline ghost link),

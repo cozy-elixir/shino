@@ -40,7 +40,7 @@ defmodule Shino.UI.Pagination do
   @doc """
   The root contains all the parts of a popover.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -60,7 +60,7 @@ defmodule Shino.UI.Pagination do
   @doc """
   Renders a pagination content.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -75,7 +75,7 @@ defmodule Shino.UI.Pagination do
   @doc """
   Renders a pagination item.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -92,7 +92,7 @@ defmodule Shino.UI.Pagination do
   """
   attr :active, :boolean, default: false
   attr :size, :string, values: ["default", "sm", "lg", "icon"], default: "icon"
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global, include: ~w(href navigate patch method)
   slot :inner_block, required: true
 
@@ -118,7 +118,7 @@ defmodule Shino.UI.Pagination do
   @doc """
   Renders a previous button.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global, include: ~w(href navigate patch)
   slot :inner_block
 
@@ -141,7 +141,7 @@ defmodule Shino.UI.Pagination do
   @doc """
   Renders a next button.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global, include: ~w(href navigate patch)
   slot :inner_block
 
@@ -157,7 +157,7 @@ defmodule Shino.UI.Pagination do
   @doc """
   Renders a ellipsis.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
 
   def ellipsis(assigns) do

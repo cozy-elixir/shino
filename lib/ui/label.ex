@@ -20,7 +20,7 @@ defmodule Shino.UI.Label do
   <.label>Username</.label>
   ```
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global, include: ~w(for)
   slot :inner_block, required: true
 

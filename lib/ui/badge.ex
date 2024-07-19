@@ -22,7 +22,7 @@ defmodule Shino.UI.Badge do
   <.badge variant="destructive">Destructive</.badge>
   ```
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
 
   attr :variant, :string,
     values: ["default", "secondary", "outline", "destructive"],

@@ -64,7 +64,7 @@ defmodule Shino.UI.Tabs do
   """
   attr :id, :string, required: true
   attr :default_value, :string, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -79,7 +79,7 @@ defmodule Shino.UI.Tabs do
   @doc """
   Renders a wrapper for tabs' triggers.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -106,7 +106,7 @@ defmodule Shino.UI.Tabs do
   """
   attr :root, :string, required: true, doc: "id of root tabs tag"
   attr :value, :string, required: true, doc: "target value of tab content"
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -135,7 +135,7 @@ defmodule Shino.UI.Tabs do
   Renders the content associated to a tab.
   """
   attr :value, :string, required: true, doc: "unique for tab content"
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 

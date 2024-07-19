@@ -40,7 +40,7 @@ defmodule Shino.UI.Collapsible do
   """
   attr :id, :string, required: true
   attr :default_open, :boolean, default: false
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -63,7 +63,7 @@ defmodule Shino.UI.Collapsible do
   Renders the trigger of a collapsible.
   """
   attr :for, Root, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -87,7 +87,7 @@ defmodule Shino.UI.Collapsible do
   Renders the content of a collapsible.
   """
   attr :for, Root, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 

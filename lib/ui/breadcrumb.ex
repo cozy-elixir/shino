@@ -58,7 +58,7 @@ defmodule Shino.UI.Breadcrumb do
   @doc """
   The root contains all the parts of a breadcrumb.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -73,7 +73,7 @@ defmodule Shino.UI.Breadcrumb do
   @doc """
   Renders a breadcrumb list.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -104,7 +104,7 @@ defmodule Shino.UI.Breadcrumb do
     * ...
 
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -119,7 +119,7 @@ defmodule Shino.UI.Breadcrumb do
   @doc """
   Renders a breadcrumb link.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global, include: ~w(href navigate patch method)
   slot :inner_block, required: true
 
@@ -134,7 +134,7 @@ defmodule Shino.UI.Breadcrumb do
   @doc """
   Renders a breadcrumb page which indicates the page that user visits currently.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -165,7 +165,7 @@ defmodule Shino.UI.Breadcrumb do
   </Breadcrumb.separator>
   ```
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block
 
@@ -196,7 +196,7 @@ defmodule Shino.UI.Breadcrumb do
   </Breadcrumb.ellipsis>
   ```
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block
 

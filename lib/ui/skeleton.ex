@@ -37,7 +37,7 @@ defmodule Shino.UI.Skeleton do
   </div>
   ```
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
 
   def skeleton(assigns) do

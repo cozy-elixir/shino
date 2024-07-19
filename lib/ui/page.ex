@@ -11,7 +11,7 @@ defmodule Shino.UI.Page do
   @doc """
   Readers a page header.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   slot :inner_block, required: true
   slot :subtitle
   slot :actions

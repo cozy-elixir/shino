@@ -22,7 +22,7 @@ defmodule Shino.UI.Helpers do
   Renders an icon.
   """
   attr :name, :string, required: true
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
 
   def icon(%{name: "tabler-x"} = assigns) do

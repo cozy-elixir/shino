@@ -66,7 +66,7 @@ defmodule Shino.UI.Input do
     values:
       ~w(text email url password number range tel search color date time datetime-local month week file hidden)
 
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
 
   attr :rest, :global,
     # credo:disable-for-next-line
@@ -124,7 +124,7 @@ defmodule Shino.UI.Input do
   attr :id, :any, default: nil
   attr :name, :string
   attr :value, :string
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global, include: ~w(rows)
 
   def textarea(assigns) do
@@ -175,7 +175,7 @@ defmodule Shino.UI.Input do
   attr :value, :any
   attr :label, :string, default: nil
   attr :checked, :boolean
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
 
   def checkbox(assigns) do
@@ -231,7 +231,7 @@ defmodule Shino.UI.Input do
   attr :name, :any
   attr :value, :any
   attr :checked, :boolean
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :disabled, :boolean, default: false
   attr :rest, :global
 
@@ -301,7 +301,7 @@ defmodule Shino.UI.Input do
   attr :prompt, :string, default: nil
   attr :options, :list, doc: "the options to pass to Phoenix.HTML.Form.options_for_select/2"
   attr :multiple, :boolean, default: false
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
 
   def select(assigns) do

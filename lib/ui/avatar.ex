@@ -32,7 +32,7 @@ defmodule Shino.UI.Avatar do
   @doc """
   The root contains all the parts of an avatar.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -47,7 +47,7 @@ defmodule Shino.UI.Avatar do
   @doc """
   Renders an avatar image.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global, include: ~w(src)
 
   def image(assigns) do
@@ -65,7 +65,7 @@ defmodule Shino.UI.Avatar do
   @doc """
   Renders an avatar fallback.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 

@@ -51,7 +51,7 @@ defmodule Shino.UI.Menu do
   @doc """
   The root contains all the parts of a menu.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
 
@@ -72,7 +72,7 @@ defmodule Shino.UI.Menu do
   @doc """
   Renders a menu item.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :disabled, :boolean, default: false
   attr :rest, :global
   slot :inner_block, required: true
@@ -100,7 +100,7 @@ defmodule Shino.UI.Menu do
   @doc """
   Renders a menu plain.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global, include: ~w(href navigate patch)
   slot :inner_block, required: true
 
@@ -115,7 +115,7 @@ defmodule Shino.UI.Menu do
   @doc """
   Renders a menu anchor.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :rest, :global, include: ~w(href navigate patch method)
   slot :inner_block, required: true
 
@@ -130,7 +130,7 @@ defmodule Shino.UI.Menu do
   @doc """
   Renders a menu label.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :inset, :boolean, default: false
   attr :rest, :global
   slot :inner_block, required: true
@@ -152,7 +152,7 @@ defmodule Shino.UI.Menu do
     """
   end
 
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   slot :inner_block, required: true
   attr :rest, :global
 
@@ -170,7 +170,7 @@ defmodule Shino.UI.Menu do
   @doc """
   Renders a menu separator.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   slot :inner_block
 
   def separator(assigns) do
@@ -184,7 +184,7 @@ defmodule Shino.UI.Menu do
   @doc """
   Renders a menu group.
   """
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   slot :inner_block, required: true
   attr :rest, :global
 
