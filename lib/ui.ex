@@ -74,7 +74,7 @@ defmodule Shino.UI do
       alias Shino.UI.Card
       alias Shino.UI.Form
       alias Shino.UI.Table
-      alias Shino.UI.AttrList
+      alias Shino.UI.Attrs
       alias Shino.UI.Breadcrumb
       alias Shino.UI.Menu
       alias Shino.UI.Avatar
