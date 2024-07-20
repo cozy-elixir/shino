@@ -173,7 +173,7 @@ defmodule Shino.UI.Dialog do
       <div id={"#{@for.id}-overlay"} class="absolute inset-0 bg-black/80" aria-hidden="true" />
       <div class="absolute inset-0 overflow-y-auto">
         <div class="min-h-full flex items-center justify-center">
-          <div class="w-full max-w-xl py-8 sm:py-10 lg:py-12">
+          <div class="max-w-full min-w-0 px-0 py-8 sm:py-10 sm:px-6 lg:py-12 lg:px-8">
             <.focus_wrap
               id={"#{@for.id}-dialog"}
               role="dialog"
