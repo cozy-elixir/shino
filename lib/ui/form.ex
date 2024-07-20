@@ -191,6 +191,54 @@ defmodule Shino.UI.Form do
     """
   end
 
+  @doc """
+  Converts a `Phoenix.HTML.FormField` struct into a `Phoenix.HTML.Form` struct.
+
+  It's a complement to `Phoenix.Component.to_form/2`.
+
+  > In general, you should use `Phoenix.LiveView.inputs_for/1`.
+  """
+  @spec to_form(Phoenix.HTML.FormField.t(), keyword()) :: Phoenix.HTML.Form.t()
+  def to_form(%Phoenix.HTML.FormField{} = field, options \\ []) do
+    %{field: field_name, form: parent_form} = field
+    options = Keyword.merge(parent_form.options, options)
+    forms = parent_form.impl.to_form(parent_form.source, parent_form, field_name, options)
+
+    case forms do
+      [form] ->
+        form
+
+      _ ->
+        struct = parent_form.source.data.__struct__
+
+        raise ArgumentError,
+              "could not convert #{inspect(field)} from #{inspect(struct)} to a form. " <>
+                "Check the field exists and it is one of embeds_one or has_one."
+    end
+  end
+
+  @doc """
+  Checks if a field has errors.
+  """
+  def error_field?(%Phoenix.HTML.FormField{} = field) do
+    Phoenix.Component.used_input?(field) && field.errors != []
+  end
+
+  @doc """
+  Renders an error block.
+  """
+  attr :class, :any, default: nil
+  attr :rest, :global
+  slot :inner_block, required: true
+
+  def error_block(assigns) do
+    ~H"""
+    <p class={mc(["text-sm font-medium text-destructive", @class])} {@rest}>
+      <%= render_slot(@inner_block) %>
+    </p>
+    """
+  end
+
   @doc false
   def translate_error({msg, opts}) do
     Enum.reduce(opts, msg, fn {key, value}, acc ->
