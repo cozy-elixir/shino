@@ -8,7 +8,7 @@ defmodule Shino.UI.Helpers do
   def mc(classes) when is_list(classes) do
     classes
     |> List.flatten()
-    |> Enum.reject(& &1 == nil)
+    |> Enum.reject(&(&1 == nil))
     |> Enum.join(" ")
   end
 
