@@ -33,9 +33,9 @@ defmodule Shino.UI.AttrList do
 
   def root(assigns) do
     ~H"""
-    <ul class={mc(["grid gap-3", @class])} {@rest}>
+    <dl class={mc(["grid gap-3", @class])} {@rest}>
       <%= render_slot(@inner_block) %>
-    </ul>
+    </dl>
     """
   end
 
@@ -48,9 +48,9 @@ defmodule Shino.UI.AttrList do
 
   def item(assigns) do
     ~H"""
-    <li class={mc(["flex justify-between items-center gap-4", @class])} {@rest}>
+    <div class={mc(["flex justify-between items-center gap-4", @class])} {@rest}>
       <%= render_slot(@inner_block) %>
-    </li>
+    </div>
     """
   end
 
@@ -63,9 +63,9 @@ defmodule Shino.UI.AttrList do
 
   def name(assigns) do
     ~H"""
-    <span class="text-muted-foreground" {@rest}>
+    <dt class="text-muted-foreground" {@rest}>
       <%= render_slot(@inner_block) %>
-    </span>
+    </dt>
     """
   end
 
@@ -78,9 +78,9 @@ defmodule Shino.UI.AttrList do
 
   def value(assigns) do
     ~H"""
-    <span class={@class} {@rest}>
+    <dd class={@class} {@rest}>
       <%= render_slot(@inner_block) %>
-    </span>
+    </dd>
     """
   end
 end
