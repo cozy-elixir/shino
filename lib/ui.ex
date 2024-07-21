@@ -56,6 +56,7 @@ defmodule Shino.UI do
       import Shino.UI.AspectRatio
       import Shino.UI.ScrollArea
       import Shino.UI.JS
+      import Shino.UI.Helpers, only: [mc: 1]
 
       # base components - aliases
 
