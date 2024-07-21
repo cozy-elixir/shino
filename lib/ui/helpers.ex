@@ -3,6 +3,7 @@ defmodule Shino.UI.Helpers do
 
   use Phoenix.Component
 
+  @doc false
   def mc(nil), do: nil
 
   def mc(classes) when is_list(classes) do
@@ -12,10 +13,13 @@ defmodule Shino.UI.Helpers do
     |> Enum.join(" ")
   end
 
+  @doc false
   def ms(nil), do: nil
+  def ms(styles) when is_list(styles), do: Enum.join(styles, " ")
 
-  def ms(styles) when is_list(styles) do
-    Enum.join(styles, " ")
+  @doc false
+  def assign_default_global(assigns, key, default) when is_map(assigns) and is_map(default) do
+    assign(assigns, key, Map.merge(default, assigns[key]))
   end
 
   @doc """

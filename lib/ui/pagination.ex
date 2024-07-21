@@ -5,7 +5,7 @@ defmodule Shino.UI.Pagination do
   ## Examples
 
   ```heex
-  <Pagination.root>
+  <Pagination.root class="mx-auto flex w-full justify-center">
     <Pagination.content>
       <Pagination.item>
         <Pagination.prev href="#" />
@@ -29,6 +29,13 @@ defmodule Shino.UI.Pagination do
   </Pagination.root>
   ```
 
+  To override the content of `<.prev />` or `<.next />`, try:
+
+  ```heex
+  <Pagination.prev href="#" aria-lable="上一页">上一页</Pagination.prev>
+  <Pagination.next href="#" aria-lable="下一页">下一页</Pagination.next>
+  ```
+
   ## References
 
     * [shadcn/ui - Pagination](https://ui.shadcn.com/docs/components/pagination)
@@ -45,13 +52,12 @@ defmodule Shino.UI.Pagination do
   slot :inner_block, required: true
 
   def root(assigns) do
+    assigns =
+      assigns
+      |> assign_default_global(:rest, %{"aria-label": "pagination", role: "pagination"})
+
     ~H"""
-    <nav
-      arial-label="pagination"
-      role="pagination"
-      class={mc(["mx-auto flex w-full justify-center", @class])}
-      {@rest}
-    >
+    <nav class={@class} {@rest}>
       <%= render_slot(@inner_block) %>
     </nav>
     """
@@ -97,9 +103,12 @@ defmodule Shino.UI.Pagination do
   slot :inner_block, required: true
 
   def anchor(assigns) do
+    assigns =
+      assigns
+      |> assign_default_global(:rest, %{"aria-current": if(assigns.active, do: "page", else: nil)})
+
     ~H"""
     <.link
-      aria-current={if(@active, do: "page", else: nil)}
       class={
         mc([
           "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50",
@@ -123,15 +132,18 @@ defmodule Shino.UI.Pagination do
   slot :inner_block
 
   def previous(assigns) do
+    assigns =
+      assigns
+      |> assign_default_global(:rest, %{"aria-label": "Go to previous page"})
+
     ~H"""
-    <.anchor
-      aria-label="Go to previous page"
-      size="default"
-      class={mc(["gap-1 pl-2.5", @class])}
-      {@rest}
-    >
+    <.anchor size="default" class={mc(["gap-1 pl-2.5", @class])} {@rest}>
       <.icon name="tabler-chevron-left" class="size-3.5" />
-      <span>Previous</span>
+      <%= if @inner_block != [] do %>
+        <%= render_slot(@inner_block) %>
+      <% else %>
+        <span>Previous</span>
+      <% end %>
     </.anchor>
     """
   end
@@ -146,9 +158,17 @@ defmodule Shino.UI.Pagination do
   slot :inner_block
 
   def next(assigns) do
+    assigns =
+      assigns
+      |> assign_default_global(:rest, %{"aria-label": "Go to next page"})
+
     ~H"""
-    <.anchor aria-label="Go to next page" size="default" class={mc(["gap-1 pr-2.5", @class])} {@rest}>
-      <span>Next</span>
+    <.anchor size="default" class={mc(["gap-1 pr-2.5", @class])} {@rest}>
+      <%= if @inner_block != [] do %>
+        <%= render_slot(@inner_block) %>
+      <% else %>
+        <span>Next</span>
+      <% end %>
       <.icon name="tabler-chevron-right" class="size-3.5" />
     </.anchor>
     """
@@ -170,8 +190,10 @@ defmodule Shino.UI.Pagination do
   end
 
   @variant_classes %{
-    "outline" =>
-      "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+    "outline" => [
+      "border border-input bg-background shadow-sm",
+      "hover:bg-accent hover:text-accent-foreground"
+    ],
     "ghost" => "hover:bg-accent hover:text-accent-foreground"
   }
 
