@@ -25,7 +25,7 @@ defmodule Shino.UI.GradientMask do
 
   def gradient_mask(assigns) do
     ~H"""
-    <div class={mc([side_class(@side), "h-10 from-background", @class])} {@rest}>
+    <div class={mc([side_class(@side), "pointer-events-none h-10 from-background", @class])} {@rest}>
       <%= if @inner_block != [] do %>
         <%= render_slot(@inner_block) %>
       <% end %>
