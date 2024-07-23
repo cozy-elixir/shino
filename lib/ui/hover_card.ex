@@ -7,11 +7,11 @@ defmodule Shino.UI.HoverCard do
   ## Examples
 
   ```heex
-  <HoverCard.root>
-    <HoverCard.trigger>
+  <HoverCard.root :let={root} side="top" align="start">
+    <HoverCard.trigger for={root}>
       Hover Me
     </HoverCard.trigger>
-    <HoverCard.content>
+    <HoverCard.content for={root}>
       Here is a Card
     </HoverCard.content>
   </HoverCard.root>
@@ -26,9 +26,16 @@ defmodule Shino.UI.HoverCard do
 
   use Shino.UI, :component
 
+  defmodule Root do
+    @moduledoc false
+    defstruct [:side, :align]
+  end
+
   @doc """
   The root contains all the parts of a hover card.
   """
+  attr :side, :string, values: ["top", "bottom", "left", "right"], default: "bottom"
+  attr :align, :string, values: ["start", "center", "end"], default: "center"
   attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
@@ -36,7 +43,7 @@ defmodule Shino.UI.HoverCard do
   def root(assigns) do
     ~H"""
     <div class={mc(["inline-block relative group/hover-card", @class])} {@rest}>
-      <%= render_slot(@inner_block) %>
+      <%= render_slot(@inner_block, %Root{side: @side, align: @align}) %>
     </div>
     """
   end
@@ -44,6 +51,7 @@ defmodule Shino.UI.HoverCard do
   @doc """
   Renders a hover card trigger.
   """
+  attr :for, Root, required: true
   attr :class, :any, default: nil
   attr :rest, :global
   slot :inner_block, required: true
@@ -59,23 +67,22 @@ defmodule Shino.UI.HoverCard do
   @doc """
   Render a hover card content.
   """
+  attr :for, Root, required: true
   attr :class, :any, default: nil
-  attr :side, :string, values: ["top", "bottom", "left", "right"], default: "bottom"
-  attr :align, :string, values: ["start", "center", "end"], default: "center"
   attr :rest, :global
   slot :inner_block, required: true
 
   def content(assigns) do
     ~H"""
     <div
-      data-side={@side}
+      data-side={@for.side}
       class={
         mc([
           "absolute hidden group-hover/hover-card:block",
           "z-50 w-64 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none",
-          "animate-in fade-in-0 zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-          side_class(@side),
-          align_class(@side, @align)
+          "animate-in fade-in-0 zoom-in-95",
+          side_class(@for.side),
+          align_class(@for.side, @for.align)
         ])
       }
       {@rest}
@@ -86,10 +93,10 @@ defmodule Shino.UI.HoverCard do
   end
 
   @side_classes %{
-    "top" => "bottom-full mb-2",
-    "bottom" => "top-full mt-2",
-    "left" => "right-full mr-2",
-    "right" => "left-full ml-2"
+    "top" => "bottom-full mb-2 data-[side=top]:slide-in-from-bottom-2",
+    "bottom" => "top-full mt-2 data-[side=bottom]:slide-in-from-top-2",
+    "left" => "right-full mr-2 data-[side=left]:slide-in-from-right-2",
+    "right" => "left-full ml-2 data-[side=right]:slide-in-from-left-2"
   }
 
   defp side_class(side), do: Map.fetch!(@side_classes, side)
