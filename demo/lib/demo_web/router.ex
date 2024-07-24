@@ -16,6 +16,7 @@ defmodule DemoWeb.Router do
     live "/", HomeLive
     live "/installation", HomeLive, :installation
     live "/components/button", HomeLive, :component_button
+    live "/components/input", HomeLive, :component_input
 
     live "/notification/introduction", HomeLive, :notification_introduction
     live "/notification/customization", HomeLive, :notification_customization

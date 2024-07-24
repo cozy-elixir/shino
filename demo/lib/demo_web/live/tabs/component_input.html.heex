@@ -1,0 +1,81 @@
+<div class="grid gap-4">
+  <div>
+    <p class="!my-0">input</p>
+    <.input name="name" value="" />
+  </div>
+  <div>
+    <p class="!my-0">file input</p>
+    <.input type="file" name="name" value="" />
+  </div>
+
+  <div>
+    <p class="!my-0">textarea</p>
+    <.textarea name="name" value="" />
+  </div>
+
+  <div>
+    <p class="!my-0">select</p>
+    <.select
+      id="select-1"
+      name="name"
+      value="today"
+      options={[
+        Today: "today",
+        Yesterday: "yesterday",
+        "Current Month": "current-month",
+        "Current Year": "current-year"
+      ]}
+    />
+  </div>
+
+  <div>
+    <p class="!my-0">checkbox</p>
+    <.checkbox name="name" value="" />
+  </div>
+
+  <div>
+    <p class="!my-0">switch</p>
+    <.switch id="switch-1" name="name" />
+    <.switch id="switch-2" name="name" checked />
+  </div>
+
+  <div class="grid gap-2">
+    <p class="!my-0">input group</p>
+    <.input_group>
+      <.input_group_text>Name</.input_group_text>
+      <.input name="name" value="" />
+    </.input_group>
+
+    <.input_group>
+      <.input name="name" value="" />
+      <.input_group_text>MB</.input_group_text>
+    </.input_group>
+
+    <.input_group>
+      <.input name="username" value="" />
+      <.input_group_text>@</.input_group_text>
+      <.input name="server" value="" />
+    </.input_group>
+
+    <.input_group>
+      <.input_group_text>$</.input_group_text>
+      <.input_group_text>$</.input_group_text>
+      <.input name="last_name" value="" />
+    </.input_group>
+
+    <.input_group>
+      <.select
+        id="select-1"
+        name="name"
+        value="today"
+        options={[
+          Today: "today",
+          Yesterday: "yesterday",
+          "Current Month": "current-month",
+          "Current Year": "current-year"
+        ]}
+      />
+      <.input_group_text>$</.input_group_text>
+    </.input_group>
+  </div>
+</div>
