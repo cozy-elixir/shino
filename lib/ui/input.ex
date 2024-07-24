@@ -98,11 +98,11 @@ defmodule Shino.UI.Input do
       class={
         mc([
           "h-10",
-          "w-full px-3 py-2 rounded-md border !border-input bg-background text-sm",
+          "w-full px-3 py-2 rounded-md border border-input bg-background text-sm",
           "file:border-0 file:bg-transparent file:text-sm file:font-medium",
-          "placeholder:text-muted-foreground",
-          "ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-          "disabled:cursor-not-allowed disabled:opacity-50",
+          placeholder_class(),
+          focus_class(),
+          disabled_class(),
           @class
         ])
       }
@@ -137,11 +137,10 @@ defmodule Shino.UI.Input do
       class={
         mc([
           "min-h-[80px]",
-          "w-full px-3 py-2 rounded-md border !border-input bg-background text-sm",
-          "file:border-0 file:bg-transparent file:text-sm file:font-medium",
-          "placeholder:text-muted-foreground",
-          "ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-          "disabled:cursor-not-allowed disabled:opacity-50",
+          "w-full px-3 py-2 rounded-md border border-input bg-background text-sm",
+          placeholder_class(),
+          focus_class(),
+          disabled_class(),
           @class
         ])
       }
@@ -200,8 +199,8 @@ defmodule Shino.UI.Input do
             mc([
               "peer h-4 w-4 shrink-0 rounded-sm border border-input",
               "text-primary",
-              "ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-              "disabled:cursor-not-allowed disabled:opacity-50",
+              focus_class(),
+              disabled_class(),
               @class
             ])
           }
@@ -250,15 +249,18 @@ defmodule Shino.UI.Input do
       data-state={(@checked && "checked") || "unchecked"}
       phx-click={JS.dispatch("click", to: "##{@id}", bubbles: false)}
       class={[
-        "group/switch inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-        "disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input"
+        "group/switch inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent",
+        "transition motion-reduce:transition-none ease-in-out duration-150",
+        "focus-visible:outline-none focus-visible:ring focus-visible:ring-offset-1 focus-visible:ring-offset-primary focus-visible:ring-ring/10",
+        "data-[state=checked]:focus-visible:ring-offset-transparent",
+        "data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
+        disabled_class()
       ]}
       disabled={@disabled}
     >
       <span class={[
         "pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0",
-        "transition-transform group-data-[state=checked]/switch:translate-x-5 group-data-[state=unchecked]/switch:translate-x-0"
+        "transition-transform motion-reduce:transition-none group-data-[state=checked]/switch:translate-x-5 group-data-[state=unchecked]/switch:translate-x-0"
       ]}>
       </span>
       <input type="hidden" name={@name} value="false" />
@@ -315,11 +317,11 @@ defmodule Shino.UI.Input do
       class={
         mc([
           "h-10",
-          "w-full px-3 pl-2 pr-8 rounded-md border !border-input bg-background text-sm",
+          "w-full px-3 pl-2 pr-8 rounded-md border border-input bg-background text-sm",
           "file:border-0 file:bg-transparent file:text-sm file:font-medium",
-          "placeholder:text-muted-foreground",
-          "ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-          "disabled:cursor-not-allowed disabled:opacity-50",
+          placeholder_class(),
+          focus_class(),
+          disabled_class(),
           @class
         ])
       }
@@ -343,4 +345,25 @@ defmodule Shino.UI.Input do
   defp prepare_assigns(assigns) do
     assigns
   end
+
+  defp placeholder_class, do: "placeholder:text-muted-foreground"
+
+  defp focus_class do
+    [
+      "focus:outline-none",
+      "focus:border-primary",
+      "focus:ring focus:ring-offset-0 focus:ring-ring/10",
+      "transition motion-reduce:transition-none ease-in-out duration-150"
+    ]
+  end
+
+  defp focus_class do
+    [
+      "focus-visible:outline-none",
+      "focus-visible:ring focus-visible:ring-offset-1 focus-visible:ring-offset-primary focus-visible:ring-ring/10",
+      "transition motion-reduce:transition-none ease-in-out duration-150"
+    ]
+  end
+
+  defp disabled_class, do: "disabled:cursor-not-allowed disabled:opacity-50"
 end
