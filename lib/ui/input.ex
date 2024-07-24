@@ -97,6 +97,7 @@ defmodule Shino.UI.Input do
       value={Phoenix.HTML.Form.normalize_value(@type, @value)}
       class={
         mc([
+          "input-group-compatible",
           "h-10",
           "w-full px-3 py-2 rounded-md border border-input bg-background text-sm",
           "file:border-0 file:bg-transparent file:text-sm file:font-medium",
@@ -316,6 +317,7 @@ defmodule Shino.UI.Input do
       multiple={@multiple}
       class={
         mc([
+          "input-group-compatible",
           "h-10",
           "w-full px-3 pl-2 pr-8 rounded-md border border-input bg-background text-sm",
           "file:border-0 file:bg-transparent file:text-sm file:font-medium",
@@ -330,6 +332,90 @@ defmodule Shino.UI.Input do
       <option :if={@prompt} value=""><%= @prompt %></option>
       <%= Phoenix.HTML.Form.options_for_select(@options, @value) %>
     </select>
+    """
+  end
+
+  @doc """
+  Extends inputs with extra addons.
+
+  ## Supported addons
+
+    * `input_group_text/1`
+
+  ## Compatible inputs
+
+    * `input/1`
+    * `select/1`
+
+  ## Examples
+
+  ```heex
+  <.input_group>
+    <.input_group_text>@</.input_group_text>
+    <.input name="name" value="" />
+  </.input_group>
+  ```
+
+  Multiple inputs:
+
+  ```heex
+  <.input_group>
+    <.input name="username" value="" />
+    <.input_group_text>@</.input_group_text>
+    <.input name="server" value="" />
+  </.input_group>
+  ```
+
+  ## References
+
+    * [Bootstrap > Forms > Input group](https://getbootstrap.com/docs/5.3/forms/input-group/)
+
+  """
+  attr :class, :any, default: nil
+  attr :rest, :global
+  slot :inner_block, required: true
+
+  def input_group(assigns) do
+    ~H"""
+    <div
+      class={
+        mc([
+          "group/input w-full flex items-stretch",
+          "[&>:not(:first-child)]:rounded-l-none [&>:not(:first-child)]:-ml-px",
+          "[&>:not(:last-child)]:rounded-r-none",
+          "[&>.input-group-compatible]:relative",
+          @class
+        ])
+      }
+      {@rest}
+    >
+      <%= render_slot(@inner_block) %>
+    </div>
+    """
+  end
+
+  @doc """
+  Renders a text addon for input group.
+
+  Read the doc of `input_group/1` for more information.
+  """
+  attr :class, :any, default: nil
+  attr :rest, :global
+  slot :inner_block, required: true
+
+  def input_group_text(assigns) do
+    ~H"""
+    <div
+      class={
+        mc([
+          "px-3 py-2 flex items-center rounded-md border border-input bg-muted text-sm",
+          @class
+        ])
+      }
+      {@rest}
+    >
+      <%= render_slot(@inner_block) %>
+    </div>
     """
   end
 
@@ -353,14 +439,6 @@ defmodule Shino.UI.Input do
       "focus:outline-none",
       "focus:border-primary",
       "focus:ring focus:ring-offset-0 focus:ring-ring/10",
-      "transition motion-reduce:transition-none ease-in-out duration-150"
-    ]
-  end
-
-  defp focus_class do
-    [
-      "focus-visible:outline-none",
-      "focus-visible:ring focus-visible:ring-offset-1 focus-visible:ring-offset-primary focus-visible:ring-ring/10",
       "transition motion-reduce:transition-none ease-in-out duration-150"
     ]
   end
