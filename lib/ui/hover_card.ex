@@ -82,7 +82,8 @@ defmodule Shino.UI.HoverCard do
           "z-50 w-64 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none",
           "animate-in fade-in-0 zoom-in-95",
           side_class(@for.side),
-          align_class(@for.side, @for.align)
+          align_class(@for.side, @for.align),
+          @class
         ])
       }
       {@rest}
