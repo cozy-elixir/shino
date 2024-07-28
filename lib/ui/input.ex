@@ -284,7 +284,7 @@ defmodule Shino.UI.Input do
   ## Examples
 
   ```heex
-  <select
+  <.select
     field={@form[:time_range]}
     options={[
       "Today": "today",
