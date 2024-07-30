@@ -52,6 +52,12 @@ defmodule Shino.UI.Input do
 
   ## Examples
 
+  ```
+  <.input name="email" "type="email" />
+  ```
+
+  Use a form field:
+
   ```heex
   <.input field={@form[:email]} type="email" placeholder="Enter your email" />
   ```
