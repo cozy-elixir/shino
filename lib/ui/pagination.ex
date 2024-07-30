@@ -182,7 +182,7 @@ defmodule Shino.UI.Pagination do
 
   def ellipsis(assigns) do
     ~H"""
-    <span class={mc(["flex h-9 w-9 items-center justify-center", @class])} {@rest}>
+    <span class={mc(["relative flex h-9 w-9 items-center justify-center", @class])} {@rest}>
       <.icon name="tabler-dots" class="size-3.5" />
       <span class="sr-only">More pages</span>
     </span>
